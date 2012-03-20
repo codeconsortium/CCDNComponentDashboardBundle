@@ -1,0 +1,11 @@
+parameters:
+    ccdn_component_dashboard.subscriber_chain.class: CCDNComponent\DashboardBundle\Component\Chain\SubscriberChain
+    ccdn_component_dashboard.registry.class:        CCDNComponent\DashboardBundle\Component\Registry\DashboardRegistry
+    
+services:
+    ccdn_component_dashboard.subscriber_chain:
+        class: %ccdn_component_dashboard.subscriber_chain.class%
+
+    ccdn_component_dashboard.registry:
+        class: %ccdn_component_dashboard.registry.class%
+        arguments: [@service_container]

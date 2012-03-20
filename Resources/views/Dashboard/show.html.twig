@@ -1,0 +1,60 @@
+{% extends param('ccdn_forum_forum.board.layout_templates.show') %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link href="{{ asset('bundles/ccdncomponentcrumbtrail/css/crumbs.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block title %}{{ 'title.dashboard' | trans({}, 'CCDNComponentDashboardBundle') }}{% endblock %}
+
+{% block sidebar %}
+{% if is_granted('ROLE_MODERATOR') %}
+<div class="common_box_5 bg_header_smoke">
+	<div class="common_box_header"><span class="heading_glow">{{ 'sidebar.header.special' | trans({}, 'CCDNComponentCommonBundle') }}</span></div>
+	<div class="common_box_panel"><a class="sidebar" href="{{ path('cc_moderator_forum_cp') }}">{{ 'general.view.link_moderate' | trans({}, 'CCDNComponentCommonBundle') }}</a></div>
+	{% if is_granted('ROLE_ADMIN') %}
+	<div class="common_box_panel"><a class="sidebar" href="{{ path('cc_admin_forum_cp') }}">{{ 'general.view.link_administrate' | trans({}, 'CCDNComponentCommonBundle') }}</a></div>
+	{% endif %}
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block body %}
+
+{% include 'CCDNComponentCrumbTrailBundle:Trail:trail.html.twig' with {'crumbs': crumbs } %}
+
+{% include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' %}
+
+
+<div class="common_box_5 bg_header_smoke">
+	<div class="common_box_header">
+		<span class="heading_glow">{{ 'title.dashboard' | trans({}, 'CCDNComponentDashboardBundle') }}</span>
+	</div>
+	{% for resource_row, resource in resources %}
+		{% for category_row, category in resource %}
+			<div class="common_tool_strip">
+				{{ category_row }}
+			</div>
+			<div class="common_box_panel h_align_left">
+			{% for item_row, item in category %}
+				<div class="padding_10" style="display: inline-block; width: 80px; text-align:center; vertical-align: top;">
+					<div class="padding_5" style="display: block; width: 80px; height: 35px;">
+						<a href="{{ item.url }}"><img class="icon_32x32" width="32" height="32" src="{{ item.icon }}" alt="{{ item.name }}"></a>
+					</div>
+					<div class="padding_5" style="display: block; width: 80px; height: 15px;">
+						<a href="{{ item.url }}">{{ item.name}}</a>
+					</div>
+				</div>
+			{% endfor %}
+			</div>
+		{% endfor %}
+	{% else %}
+	<div class="common_tool_strip">
+		{{ 'dashboard.empty' | trans({}, 'CCDNComponentDashboardBundle') }}
+	</div>
+	{% endfor %}
+</div>
+{% include 'CCDNComponentCrumbTrailBundle:Trail:trail.html.twig' with {'crumbs': crumbs } %}
+
+{% endblock %}
