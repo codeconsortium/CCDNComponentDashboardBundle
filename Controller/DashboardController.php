@@ -43,8 +43,7 @@ class DashboardController extends ContainerAware
 		
 		// setup crumb trail.
 		$crumb_trail = $this->container->get('ccdn_component_crumb_trail.crumb_trail')
-			->add($this->container->get('translator')->trans('crumbs.category.index', array(), 'CCDNComponentDashboardBundle'), 
-				$this->container->get('router')->generate('cc_dashboard_index'), "home");
+			->add($this->container->get('translator')->trans('crumbs.category.index', array(), 'CCDNComponentDashboardBundle'), $this->container->get('router')->generate('cc_dashboard_index'), "sitemap");
 
 
 		return $this->container->get('templating')->renderResponse('CCDNComponentDashboardBundle:Dashboard:show.html.' . $this->getEngine(), array(
@@ -68,10 +67,8 @@ class DashboardController extends ContainerAware
 		
 		// setup crumb trail.
 		$crumb_trail = $this->container->get('ccdn_component_crumb_trail.crumb_trail')
-			->add($this->container->get('translator')->trans('crumbs.category.index', array(), 'CCDNComponentDashboardBundle'), 
-				$this->container->get('router')->generate('cc_dashboard_index'), "home")
-			->add($category, 
-				$this->container->get('router')->generate('cc_dashboard_show', array('category' => $category)), "category");
+			->add($this->container->get('translator')->trans('crumbs.category.index', array(), 'CCDNComponentDashboardBundle'), $this->container->get('router')->generate('cc_dashboard_index'), "sitemap")
+			->add($category, $this->container->get('router')->generate('cc_dashboard_show', array('category' => $category)), "sitemap");
 
 
 		return $this->container->get('templating')->renderResponse('CCDNComponentDashboardBundle:Dashboard:show.html.' . $this->getEngine(), array(
