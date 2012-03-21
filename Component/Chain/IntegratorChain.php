@@ -13,13 +13,14 @@
 
 namespace CCDNComponent\DashboardBundle\Component\Chain;
 
+use CCDNComponent\DashboardBundle\Component\Integrator\IntegratorInterface;
 
 /**
  * 
  * @author Reece Fowell <reece@codeconsortium.com> 
  * @version 1.0
  */
-class SubscriberChain
+class IntegratorChain
 {
 	
 	
@@ -27,13 +28,13 @@ class SubscriberChain
 	/**
 	 *
 	 */
-	private $subscribers;
+	private $integrators;
 
 
 
 	public function __construct()
 	{
-		$this->subscribers = array();
+		$this->integrators = array();
 	}
 	
 	
@@ -41,9 +42,9 @@ class SubscriberChain
 	/**
 	 *
 	 */
-	public function addSubscriber($subscriber)
+	public function addIntegrator(IntegratorInterface $integrator)
 	{
-		$this->subscribers[] = $subscriber;
+		$this->integrators[] = $integrator;
 	}
 	
 	
@@ -51,9 +52,9 @@ class SubscriberChain
 	/**
 	 *
 	 */
-	public function getSubscribers()
+	public function getIntegrators()
 	{
-		return $this->subscribers;
+		return $this->integrators;
 	}
 	
 }

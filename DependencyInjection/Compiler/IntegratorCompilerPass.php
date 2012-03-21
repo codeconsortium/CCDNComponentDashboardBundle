@@ -23,7 +23,7 @@ use Symfony\Component\DependencyInjection\Reference;
  * @author Reece Fowell <reece@codeconsortium.com> 
  * @version 1.0
  */
-class DashboardCompilerPass implements CompilerPassInterface
+class IntegratorCompilerPass implements CompilerPassInterface
 {
 	
 	
@@ -34,14 +34,15 @@ class DashboardCompilerPass implements CompilerPassInterface
 	 */
     public function process(ContainerBuilder $container)
     {
-        if (false === $container->hasDefinition('ccdn_component_dashboard.subscriber_chain')) {
+        if (false === $container->hasDefinition('ccdn_component_dashboard.integrator_chain')) {
             return;
         }
 
-        $definition = $container->getDefinition('ccdn_component_dashboard.subscriber_chain');
+        $definition = $container->getDefinition('ccdn_component_dashboard.integrator_chain');
 
-        foreach ($container->findTaggedServiceIds('ccdn_component_dashboard.registry') as $id => $attributes) {
-            $definition->addMethodCall('addSubscriber', array(new Reference($id)));
+        foreach ($container->findTaggedServiceIds('ccdn_component_dashboard.integrator') as $id => $attributes) { 
+            $definition->addMethodCall('addIntegrator', array(new Reference($id)));
         }
+
     }
 }

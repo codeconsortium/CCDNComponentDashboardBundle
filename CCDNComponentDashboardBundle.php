@@ -16,7 +16,7 @@ namespace CCDNComponent\DashboardBundle;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-use CCDNComponent\DashboardBundle\DependencyInjection\Compiler\DashboardCompilerPass;
+use CCDNComponent\DashboardBundle\DependencyInjection\Compiler\IntegratorCompilerPass;
 
 /**
  * 
@@ -35,7 +35,7 @@ class CCDNComponentDashboardBundle extends Bundle
 	{
 		parent::build($container);
 		
-		$container->addCompilerPass(new DashboardCompilerPass());
+		$container->addCompilerPass(new IntegratorCompilerPass());
 	}
 	
 }

@@ -85,7 +85,7 @@ acme_pizza_admin.dashboard_integrator:
     class: %acme_pizza_admin.dashboard_integrator.class%
     arguments: [@service_container]
     tags:
-        - { name: ccdn_component_dashboard.registry }
+        - { name: ccdn_component_dashboard.integrator }
 ```
 
 Then add a directory structure of Component\Dashboard and create a file DashboardIntegrator.php and put the following contents in the file:
@@ -150,7 +150,7 @@ For example, /en/dashboard/admin will show all items added to the admin index. O
 
 You can repeat this step as many times as necessary in each individual bundle, and /en/dashboard will bring them all together into one nice integrated panel for easy navigation across your site.
 
-The service tag ccdn_component_dashboard.registry is what notifies the dashboard of the links in your bundles DashboardIntegrator.php file.
+The service tag ccdn_component_dashboard.subscriber is what notifies the dashboard of the links in your bundles DashboardIntegrator.php file.
 
 You can also use the same page index across multiple bundles and when you view the page they will be grouped together. 
 

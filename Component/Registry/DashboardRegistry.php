@@ -79,7 +79,7 @@ class DashboardRegistry
 		 *				[URL_LINK String]
 		 *				[URL_NAME String]
 		 */
-		$subscribers = $this->container->get('ccdn_component_dashboard.subscriber_chain')->getSubscribers();
+		$subscribers = $this->container->get('ccdn_component_dashboard.integrator_chain')->getIntegrators();
 
 		$resources = array();
 
