@@ -37,6 +37,13 @@ class BaseIntegrator
 	protected $basePath;
 
 
+
+	/**
+	 *
+	 */
+	protected $baseUrl;
+	
+	
 	
 	/**
 	 *
@@ -51,6 +58,7 @@ class BaseIntegrator
 	public function __construct($service_container)
 	{
 		$this->container = $service_container;
+		$this->baseUrl = $this->container->get('request')->getBaseUrl();
 		$this->basePath = $this->container->get('request')->getBasePath();
 		$this->locale = $this->container->get('request')->getSession()->getLocale();
 	}

@@ -40,75 +40,10 @@ class Configuration implements ConfigurationInterface
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
         // more information on that topic.
-		$rootNode
-			->children()
-				->arrayNode('user')
-					->children()
-						->scalarNode('profile_route')->defaultValue('cc_profile_show_by_id')->end()
-					->end()
-				->end()
-				->arrayNode('template')
-					->children()
-						->scalarNode('engine')->defaultValue('twig')->end()
-						->scalarNode('theme')->defaultValue('CCDNForumAdminBundle:Form:fields.html.twig')->end()
-					->end()
-				->end()
-			->end();
-			
-		$this->addCategorySection($rootNode);
-		$this->addBoardSection($rootNode);
+
 		
         return $treeBuilder;
     }
 
-
-	/**
-	 *
-	 * @access private
-	 * @param ArrayNodeDefinition $node
-	 */
-	private function addCategorySection(ArrayNodeDefinition $node)
-	{
-		$node
-			->children()
-				->arrayNode('category')
-					->children()
-						->arrayNode('layout_templates')
-							->children()
-								->scalarNode('create')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_left.html.twig')->end()
-								->scalarNode('delete_category')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_left.html.twig')->end()
-								->scalarNode('edit')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_left.html.twig')->end()
-								->scalarNode('index')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_left.html.twig')->end()
-							->end()
-						->end()
-					->end()
-				->end()
-			->end();		
-	}
-	
-
-	/**
-	 *
-	 * @access private
-	 * @param ArrayNodeDefinition $node
-	 */
-	private function addBoardSection(ArrayNodeDefinition $node)
-	{
-		$node
-			->children()
-				->arrayNode('board')
-					->children()
-						->scalarNode('topics_per_page')->defaultValue('40')->end()
-						->arrayNode('layout_templates')
-							->children()
-								->scalarNode('create')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_left.html.twig')->end()
-								->scalarNode('delete_board')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_left.html.twig')->end()
-								->scalarNode('edit')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_left.html.twig')->end()
-							->end()
-						->end()
-					->end()
-				->end()
-			->end();
-	}
 	
 }
