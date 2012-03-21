@@ -78,11 +78,11 @@ CCDNComponentDashboardBundle:
 Making your applications plug and playable with Dashboard is easy, first add to your own bundle the following service definition:
 
 ```yml
-acme_pizza_admin.dashboard_integrator.class: Acme\PizzaAdminBundle\Component\Dashboard\DashboardIntegrator
+acme_pizza_admin.dashboard.integrator.class: Acme\PizzaAdminBundle\Component\Dashboard\DashboardIntegrator
 
 
-acme_pizza_admin.dashboard_integrator:
-    class: %acme_pizza_admin.dashboard_integrator.class%
+acme_pizza_admin.dashboard.integrator:
+    class: %acme_pizza_admin.dashboard.integrator.class%
     arguments: [@service_container]
     tags:
         - { name: ccdn_component_dashboard.integrator }
