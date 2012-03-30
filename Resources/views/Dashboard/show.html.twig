@@ -37,16 +37,24 @@
 				{{ category_row }}
 			</div>
 			<div class="common_box_panel h_align_left">
-			{% for item_row, item in category %}
-				<div class="padding_10" style="display: inline-block; width: 80px; text-align:center; vertical-align: top;">
-					<div class="padding_5" style="display: block; width: 80px; height: 35px;">
-						<a href="{{ item.url }}"><img class="icon_32x32" width="32" height="32" src="{{ item.icon }}" alt="{{ item.name }}"></a>
+				<div class="row">
+				{% set row = 0 %}
+				{% for item_row, item in category %}
+				{% set row = row + 1 %}			
+					<div class="padding_10" style="display: inline-block; width: 80px; text-align:center; vertical-align: top;">
+						<div class="padding_5" style="display: block; width: 80px; height: 35px;">
+							<a href="{{ item.url }}"><img class="icon_32x32" width="32" height="32" src="{{ item.icon }}" alt="{{ item.name }}"></a>
+						</div>
+						<div class="padding_5" style="display: block; width: 80px; height: 15px;">
+							<a href="{{ item.url }}">{{ item.name}}</a>
+						</div>
 					</div>
-					<div class="padding_5" style="display: block; width: 80px; height: 15px;">
-						<a href="{{ item.url }}">{{ item.name}}</a>
+					{% if (row % 8) == 0 %}
 					</div>
+					<div class="row">
+					{% endif %}				
+				{% endfor %}
 				</div>
-			{% endfor %}
 			</div>
 		{% endfor %}
 	{% else %}
