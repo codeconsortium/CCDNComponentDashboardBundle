@@ -21,7 +21,7 @@ use Symfony\Component\DependencyInjection\ContainerAware;
  * @author Reece Fowell <reece@codeconsortium.com> 
  * @version 1.0
  */
-class DashboardRegistry
+class DashboardRegistry extends ContainerAware
 {
 
 
@@ -69,23 +69,23 @@ class DashboardRegistry
 	public function getResources()
 	{
 		
-		/**
-		 *
-		 * Structure of Subscribers
-		 * 	[DASHBOARD_PAGE String]
-		 * 		[CATEGORY_NAME String]
-		 *			[ROUTE_FOR_LINK String]
-		 *				[AUTH String]
-		 *				[URL_LINK String]
-		 *				[URL_NAME String]
-		 */
+		//
+		//
+		// Structure of Subscribers
+		// 	[DASHBOARD_PAGE String]
+		// 		[CATEGORY_NAME String]
+		//			[ROUTE_FOR_LINK String]
+		//				[AUTH String]
+		//				[URL_LINK String]
+		//				[URL_NAME String]
+		//
 		$subscribers = $this->container->get('ccdn_component_dashboard.integrator_chain')->getIntegrators();
 
 		$resources = array();
 
+		// Reduce duplicates. 
 		foreach($subscribers as $subscriberkey => $subscriber)
 		{		
-			
 			$resources = array_merge_recursive($subscriber->getResources(), $resources);
 		}
 		
@@ -97,6 +97,13 @@ class DashboardRegistry
 			{
 				foreach($category as $itemKey => $item)
 				{
+					// if no url is present, then use the ROUTE_FOR_LINK to generate the url.
+					if ( ! array_key_exists('url', $item))
+					{
+						$resources[$resourceKey][$categoryKey][$itemKey]['url'] = $this->container->get('router')->generate($itemKey);
+					}
+					
+					// if we don't have the right auth, then don't show it.
 					if (array_key_exists('auth', $item))
 					{
 						if ( ! $this->container->get('security.context')->isGranted($item['auth']))

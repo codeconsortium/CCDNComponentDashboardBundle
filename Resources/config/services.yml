@@ -1,11 +1,20 @@
 parameters:
+    
+    ccdn_component_dashboard.registry.class:         CCDNComponent\DashboardBundle\Component\Registry\DashboardRegistry
+
     ccdn_component_dashboard.integrator_chain.class: CCDNComponent\DashboardBundle\Component\Chain\IntegratorChain
-    ccdn_component_dashboard.registry.class:        CCDNComponent\DashboardBundle\Component\Registry\DashboardRegistry
     
 services:
-    ccdn_component_dashboard.integrator_chain:
-        class: %ccdn_component_dashboard.integrator_chain.class%
 
+    #
+    # Dashboard Components.
+    #
     ccdn_component_dashboard.registry:
         class: %ccdn_component_dashboard.registry.class%
         arguments: [@service_container]
+
+    #
+    # Dashboard Integrator.
+    #
+    ccdn_component_dashboard.integrator_chain:
+        class: %ccdn_component_dashboard.integrator_chain.class%
