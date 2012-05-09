@@ -132,7 +132,7 @@ class DashboardIntegrator extends BaseIntegrator
 		$resources = array(
 			'admin' => array(
 				'Administrate Pizza Ingredients' => array(
-					'cc_admin_pizza_edit' => array('auth' => 'ROLE_ADMIN', 'url' => $this->basePath . '/' . $this->locale . '/admin/pizza/ingredients/edit', 'name' => 'Edit Ingredients Choices', 'icon' => $this->basePath . '/bundles/ccdncomponentcommon/images/icons/Black/32x32/32x32_category.png'),
+					'admin_pizza_edit' => array('auth' => 'ROLE_ADMIN', 'name' => 'Edit Ingredients Choices', 'icon' => $this->basePath . '/bundles/ccdncomponentcommon/images/icons/Black/32x32/32x32_category.png'),
 				),
 			),
 
@@ -145,6 +145,8 @@ class DashboardIntegrator extends BaseIntegrator
 ```
 
 The array is where you store data relevant to that particular bundle, the first level of indices in the array can be used to specify what pages items will appear on.
+
+The array key as demonstrated in the above example (labelled in the legend as ROUTE_FOR_LINK) should be the name of the route that your link should go to. If however you cannot provide the route name because of some route properties you can specify a url as a param.
 
 For example, /en/dashboard/admin will show all items added to the admin index. Of course if you just type in /en/dashboard then everything would appear.
 
