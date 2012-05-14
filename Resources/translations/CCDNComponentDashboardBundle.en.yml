@@ -1,3 +1,5 @@
+layout.header_links.dashboard: 'Dashboard'
+
 crumbs.category.index: Index
 
 title.dashboard: 'Dashboard.'
