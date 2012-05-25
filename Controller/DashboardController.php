@@ -42,7 +42,7 @@ class DashboardController extends ContainerAware
 		$resources = $registry->getResources();
 		
 		// setup crumb trail.
-		$crumb_trail = $this->container->get('ccdn_component_crumb_trail.crumb_trail')
+		$crumb_trail = $this->container->get('ccdn_component_crumb.trail')
 			->add($this->container->get('translator')->trans('crumbs.category.index', array(), 'CCDNComponentDashboardBundle'), $this->container->get('router')->generate('cc_dashboard_index'), "sitemap");
 
 
@@ -66,7 +66,7 @@ class DashboardController extends ContainerAware
 		$resources = $registry->getResourcesFor($category);
 		
 		// setup crumb trail.
-		$crumb_trail = $this->container->get('ccdn_component_crumb_trail.crumb_trail')
+		$crumb_trail = $this->container->get('ccdn_component_crumb.trail')
 			->add($this->container->get('translator')->trans('crumbs.category.index', array(), 'CCDNComponentDashboardBundle'), $this->container->get('router')->generate('cc_dashboard_index'), "sitemap")
 			->add($category, $this->container->get('router')->generate('cc_dashboard_show', array('category' => $category)), "sitemap");
 
