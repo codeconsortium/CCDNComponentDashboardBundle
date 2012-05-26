@@ -43,11 +43,11 @@
 				{% set row = 0 %}
 				{% for item_row, item in category %}
 				{% set row = row + 1 %}			
-					<div class="padding_10" style="display: inline-block; width: 80px; text-align:center; vertical-align: top;">
-						<div class="padding_5" style="display: block; width: 80px; height: 35px;">
+					<div style="display: inline-block; width: 80px; text-align:center; vertical-align: top; padding: 10px;">
+						<div style="display: block; width: 80px; height: 35px; padding: 5px;">
 							<a href="{{ item.url }}"><img class="icon32" width="32" height="32" src="{{ item.icon }}" alt="{{ item.name }}"></a>
 						</div>
-						<div class="padding_5" style="display: block; width: 80px; height: 15px;">
+						<div style="display: block; width: 80px; height: 15px; padding: 5px;">
 							<a href="{{ item.url }}">{{ item.name}}</a>
 						</div>
 					</div>
