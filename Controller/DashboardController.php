@@ -86,7 +86,7 @@ class DashboardController extends ContainerAware
 	 */
 	protected function getEngine()
     {
-        return $this->container->getParameter('ccdn_forum_admin.template.engine');
+        return $this->container->getParameter('ccdn_component_dashboard.template.engine');
     }
 
 }

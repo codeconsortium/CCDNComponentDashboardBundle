@@ -38,5 +38,23 @@ class CCDNComponentDashboardExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
+
+		$container->setParameter('ccdn_component_dashboard.template.engine', $config['template']['engine']);
+
+		$this->getDashboardSection($container, $config);
+
     }
+	
+	
+	
+	/**
+	 *
+	 * @access private
+	 * @param $container, $config
+	 */
+	private function getDashboardSection($container, $config)
+	{
+		$container->setParameter('ccdn_component_dashboard.dashboard.show.layout_template', $config['dashboard']['show']['layout_template']);
+	}
+	
 }

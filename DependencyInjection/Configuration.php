@@ -40,10 +40,44 @@ class Configuration implements ConfigurationInterface
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
         // more information on that topic.
+		$rootNode
+			->children()
+				->arrayNode('template')
+					->children()
+						->scalarNode('engine')->defaultValue('twig')->end()
+					->end()
+				->end()
+			->end();
 
+		$this->addDashboardSection($rootNode);
 		
         return $treeBuilder;
     }
 
+
+
+	/**
+	 *
+	 * @access private
+	 * @param ArrayNodeDefinition $node
+	 */
+	private function addDashboardSection(ArrayNodeDefinition $node)
+	{
+		$node
+			->children()
+				->arrayNode('dashboard')
+					->addDefaultsIfNotSet()
+					->canBeUnset()
+					->children()
+						->arrayNode('show')
+							->addDefaultsIfNotSet()
+							->children()
+								->scalarNode('layout_template')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_left.html.twig')->end()
+							->end()
+						->end()
+					->end()
+				->end()
+			->end();		
+	}
 	
 }
