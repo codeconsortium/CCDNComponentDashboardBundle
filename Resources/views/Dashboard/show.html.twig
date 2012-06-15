@@ -23,7 +23,7 @@
 	
 	{% for resource_row, resource in resources %}
 		{% for category_row, category in resource %}
-			<div class="well"><h4>{{ category_row }}</h4></div>
+			<div class="well" style="padding:5px;"><h5>{{ category_row }}</h5></div>
 			<ul class="thumbnails">
 			{% for item_row, item in category %}
 				<li class="span2" style="text-align:center;">
