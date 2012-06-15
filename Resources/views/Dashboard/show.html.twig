@@ -14,54 +14,30 @@
 
 {% block body %}
 
-{% include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' %}
+	{% include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' %}
 
-<div class="section_wrap_top">
 	{% include 'CCDNComponentCrumbTrailBundle:Trail:trail.html.twig' with {'crumbs': crumbs } %}
-</div>
-<div class="section_wrap_bottom">
-	<div class="section_header">
-		<h2>{{ 'title.dashboard' | trans({}, 'CCDNComponentDashboardBundle') }}</h2>
-	</div>
-</div>
 
-<div class="section_wrap_standalone">
+	<h2>{{ 'title.dashboard' | trans({}, 'CCDNComponentDashboardBundle') }}</h2>
+	<br>
+	
 	{% for resource_row, resource in resources %}
 		{% for category_row, category in resource %}
-			<div class="section_sub_header">
-				<h4>{{ category_row }}</h4>
-			</div>
-			
-			<div class="section_panel h_align_left">
-				<div class="row">
-				{% set row = 0 %}
-				{% for item_row, item in category %}
-				{% set row = row + 1 %}			
-					<div style="display: inline-block; width: 80px; text-align:center; vertical-align: top; padding: 10px;">
-						<div style="display: block; width: 80px; height: 35px; padding: 5px;">
-							<a href="{{ item.url }}"><img class="icon32" width="32" height="32" src="{{ item.icon }}" alt="{{ item.name }}"></a>
-						</div>
-						<div style="display: block; width: 80px; height: 15px; padding: 5px;">
-							<a href="{{ item.url }}">{{ item.name}}</a>
-						</div>
-					</div>
-					{% if (row % 8) == 0 %}
-					</div>
-					<div class="row">
-					{% endif %}				
-				{% endfor %}
-				</div>
-			</div>
+			<div class="well"><h4>{{ category_row }}</h4></div>
+			<ul class="thumbnails">
+			{% for item_row, item in category %}
+				<li class="span2" style="text-align:center;">
+					<a class="thumbnail" href="{{ item.url }}"><img class="icon32" width="32" height="32" src="{{ item.icon }}" alt="{{ item.name }}">{{ item.name}}</a>
+				</li>
+			{% endfor %}
+			</ul>
 		{% endfor %}
 	{% else %}
-	<div class="section_tool_strip">
-		<span class="table_empty">{{ 'dashboard.empty' | trans({}, 'CCDNComponentDashboardBundle') }}</span>
-	</div>
+		<div class="center">
+			<div class="well">{{ 'dashboard.empty' | trans({}, 'CCDNComponentDashboardBundle') }}</div>
+		</div>
 	{% endfor %}
-</div>
 
-<div class="section_wrap_standalone">
 	{% include 'CCDNComponentCrumbTrailBundle:Trail:trail.html.twig' with {'crumbs': crumbs } %}
-</div>
 
 {% endblock %}
