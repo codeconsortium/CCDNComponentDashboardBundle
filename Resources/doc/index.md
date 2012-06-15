@@ -20,5 +20,6 @@ For more information about translations, check [Symfony documentation](http://sy
 
 ## Installation Documentation:
 
-- [Installing CCDNComponent DashboardBundle for Symfony 2.0.11](http://github.com/codeconsortium/DashboardBundle/blob/master/Resources/doc/Install.md).
-- [Example Usage](http://github.com/codeconsortium/DashboardBundle/blob/master/Resources/doc/example_usage.md).
+- [Installing CCDNComponent DashboardBundle for Symfony 2.0.11](install.md).
+- [Configuration Reference](configuration_reference.md).
+- [Example Usage](example_usage.md).

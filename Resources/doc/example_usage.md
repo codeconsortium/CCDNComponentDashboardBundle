@@ -99,4 +99,4 @@ ccdn_component_common:
         - { bundle: CCDNForumForumBundle, label: 'layout.header_links.forum', route: cc_forum_index }
 ```
 
-[Return back to the docs index](http://github.com/codeconsortium/DashboardBundle/blob/master/Resources/doc/index.md).
+- [Return back to the docs index](index.md).
