@@ -45,6 +45,7 @@ DashboardBundle Provides the following features:
 5. Each link can specify either a route or a url.
 6. Each link can specify a graphical icon to use.
 7. Each link has access to the SF2 translator to translate prior to rendering.
+8. Utilises Twitter-Bootstrap interface by default.
 
 Before installation of this bundle, you can download the [Sandbox](https://github.com/codeconsortium/CCDNSandBox) for testing/development and feature review, or alternatively see the product in use at [CodeConsortium](http://www.codeconsortium.com).
 
