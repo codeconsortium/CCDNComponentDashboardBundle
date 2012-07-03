@@ -53,11 +53,11 @@ Before installation of this bundle, you can download the [Sandbox](https://githu
 
 Documentation can be found in the `Resources/doc/index.md` file in this bundle:
 
-[Read the Documentation](index.md).
+[Read the Documentation](http://github.com/codeconsortium/DashboardBundle/blob/master/Resources/doc/index.md).
 
 ## Installation.
 
-All the installation instructions are located in [documentation](install.md).
+All the installation instructions are located in [documentation](http://github.com/codeconsortium/DashboardBundle/blob/master/Resources/doc/install.md).
 
 ## License.
 
