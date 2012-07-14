@@ -41,9 +41,22 @@ class CCDNComponentDashboardExtension extends Extension
 
 		$container->setParameter('ccdn_component_dashboard.template.engine', $config['template']['engine']);
 
+		$this->getSEOSection($container, $config);
 		$this->getDashboardSection($container, $config);
 
     }
+	
+	
+	
+	/**
+	 *
+	 * @access protected
+	 * @param $container, $config
+	 */
+	protected function getSEOSection($container, $config)
+	{
+	    $container->setParameter('ccdn_component_dashboard.seo.title_length', $config['seo']['title_length']);
+	}
 	
 	
 	

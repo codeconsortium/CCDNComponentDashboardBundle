@@ -48,12 +48,34 @@ class Configuration implements ConfigurationInterface
 					->end()
 				->end()
 			->end();
-
+		
+		$this->addSEOSection($rootNode);
 		$this->addDashboardSection($rootNode);
 		
         return $treeBuilder;
     }
-
+	
+	
+	
+	/**
+	 *
+	 * @access protected
+	 * @param ArrayNodeDefinition $node
+	 */
+	protected function addSEOSection(ArrayNodeDefinition $node)
+	{
+		$node
+			->children()
+				->arrayNode('seo')
+					->addDefaultsIfNotSet()
+					->canBeUnset()
+					->children()
+						->scalarNode('title_length')->defaultValue('67')->end()
+					->end()
+				->end()
+			->end();
+	}
+	
 
 
 	/**
