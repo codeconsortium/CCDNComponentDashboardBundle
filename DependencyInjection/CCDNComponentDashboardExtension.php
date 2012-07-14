@@ -28,6 +28,19 @@ use Symfony\Component\DependencyInjection\Loader;
  */
 class CCDNComponentDashboardExtension extends Extension
 {
+	
+	
+	
+    /**
+     * {@inheritDoc}
+     */
+	public function getAlias()
+	{
+		return 'ccdn_component_dashboard';
+	}
+	
+	
+	
     /**
      * {@inheritDoc}
      */
