@@ -21,8 +21,8 @@ Then add a directory structure of Component\Dashboard and create a file Dashboar
 /*
  * This file is part of the CCDNComponent DashboardBundle as an example!
  *
- * (c) CCDN (c) CodeConsortium <http://www.codeconsortium.com/> 
- * 
+ * (c) CCDN (c) CodeConsortium <http://www.codeconsortium.com/>
+ *
  * Available on github <http://www.github.com/codeconsortium/>
  *
  * For the full copyright and license information, please view the LICENSE
@@ -34,15 +34,15 @@ namespace CCDNAcme\AcmePizzaBundle\Component\Dashboard;
 use CCDNComponent\DashboardBundle\Component\Integrator\BaseIntegrator;
 
 /**
- * 
- * @author Reece Fowell <reece@codeconsortium.com> 
+ *
+ * @author Reece Fowell <reece@codeconsortium.com>
  * @version 1.0
  */
 class DashboardIntegrator extends BaseIntegrator
 {
 
-	
-	
+
+
 	/**
 	 *
 	 *
@@ -64,10 +64,10 @@ class DashboardIntegrator extends BaseIntegrator
 			),
 
 		);
-		
+
 		return $resources;
 	}
-	
+
 }
 ```
 
@@ -81,7 +81,7 @@ You can repeat this step as many times as necessary in each individual bundle, a
 
 The service tag ccdn_component_dashboard.subscriber is what notifies the dashboard of the links in your bundles DashboardIntegrator.php file.
 
-You can also use the same page index across multiple bundles and when you view the page they will be grouped together. 
+You can also use the same page index across multiple bundles and when you view the page they will be grouped together.
 
 See the other codeconsortium bundles such as the Forum bundle for more examples of this.
 

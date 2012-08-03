@@ -12,9 +12,9 @@ Installation takes only 7 steps:
 
 1. Download and install the dependencies.
 2. Register bundles with autoload.php.
-3. Register bundles with AppKernel.php.  
+3. Register bundles with AppKernel.php.
 4. Run vendors install script.
-5. Update your app/config/routing.yml. 
+5. Update your app/config/routing.yml.
 6. Symlink assets to your public web directory.
 7. Warmup the cache.
 
@@ -26,7 +26,7 @@ Append the following to end of your deps file (found in the root of your Symfony
 [CCDNComponentDashboardBundle]
 	git=http://github.com/codeconsortium/DashboardBundle.git
 	target=/bundles/CCDNComponent/DashboardBundle
-	
+
 ```
 
 ### Step 2: Register bundles with autoload.php.
@@ -41,16 +41,16 @@ $loader->registerNamespaces(array(
 ));
 ```
 
-### Step 3: Register bundles with AppKernel.php.  
+### Step 3: Register bundles with AppKernel.php.
 
-In your AppKernel.php add the following bundles to the registerBundles method array:  
+In your AppKernel.php add the following bundles to the registerBundles method array:
 
 ``` php
 // app/AppKernel.php
 public function registerBundles()
 {
     $bundles = array(
-	    new CCDNComponent\DashboardBundle\CCDNComponentDashboardBundle(),    
+	    new CCDNComponent\DashboardBundle\CCDNComponentDashboardBundle(),
 		**...**
 	);
 }
@@ -64,15 +64,15 @@ From your projects root Symfony directory on the command line run:
 $ php bin/vendors install
 ```
 
-### Step 5: Update your app/config/routing.yml. 
+### Step 5: Update your app/config/routing.yml.
 
-In your app/config/routing.yml add:  
+In your app/config/routing.yml add:
 
 ``` yml
 CCDNComponentDashboardBundle:
     resource: "@CCDNComponentDashboardBundle/Resources/config/routing.yml"
     prefix: /
- 
+
 ```
 
 ### Step 6: Symlink assets to your public web directory.
