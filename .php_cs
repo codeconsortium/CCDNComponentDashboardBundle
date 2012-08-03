@@ -1,4 +1,4 @@
-i<?php
+<?php
 
 use Symfony\CS\FixerInterface;
 
