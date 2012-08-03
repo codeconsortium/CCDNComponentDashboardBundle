@@ -14,14 +14,14 @@
 {% block body %}
 
 	{%- spaceless -%}
-	
+
 	{%- include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' -%}
 
 	{%- include 'CCDNComponentCrumbTrailBundle:Trail:trail.html.twig' with {'crumbs': crumbs } -%}
 
 	<h2>{{- 'title.dashboard' | trans({}, 'CCDNComponentDashboardBundle') -}}</h2>
 	<br>
-	
+
 	{%- for resource_row, resource in resources -%}
 		{%- for category_row, category in resource -%}
 			<h5>{{- category_row -}}</h5>
@@ -42,5 +42,5 @@
 	{%- include 'CCDNComponentCrumbTrailBundle:Trail:trail.html.twig' with {'crumbs': crumbs } -%}
 
 	{%- endspaceless -%}
-	
+
 {% endblock %}

@@ -1,9 +1,9 @@
 parameters:
-    
+
     ccdn_component_dashboard.registry.class:         CCDNComponent\DashboardBundle\Component\Registry\DashboardRegistry
 
     ccdn_component_dashboard.integrator_chain.class: CCDNComponent\DashboardBundle\Component\Chain\IntegratorChain
-    
+
 services:
 
     #
