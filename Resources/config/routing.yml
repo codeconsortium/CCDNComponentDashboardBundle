@@ -1,7 +1,7 @@
-cc_dashboard_index:
+ccdn_component_dashboard_index:
     pattern: /{_locale}/dashboard
     defaults: { _controller: CCDNComponentDashboardBundle:Dashboard:index, _locale: en }
 
-cc_dashboard_show:
+ccdn_component_dashboard_show:
     pattern: /{_locale}/dashboard/{category}
     defaults: { _controller: CCDNComponentDashboardBundle:Dashboard:show, _locale: en }
