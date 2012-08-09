@@ -36,11 +36,11 @@ class DashboardController extends ContainerAware
         $resources = $registry->getResources();
 
         // setup crumb trail.
-        $crumb_trail = $this->container->get('ccdn_component_crumb.trail')
+        $crumbs = $this->container->get('ccdn_component_crumb.trail')
             ->add($this->container->get('translator')->trans('crumbs.category.index', array(), 'CCDNComponentDashboardBundle'), $this->container->get('router')->generate('ccdn_component_dashboard_index'), "sitemap");
 
         return $this->container->get('templating')->renderResponse('CCDNComponentDashboardBundle:Dashboard:show.html.' . $this->getEngine(), array(
-            'crumbs' => $crumb_trail,
+            'crumbs' => $crumbs,
             'resources' => $resources,
         ));
     }
@@ -48,6 +48,7 @@ class DashboardController extends ContainerAware
     /**
      *
      * @access public
+	 * @category String $category
      * @return RenderResponse
      */
     public function showAction($category)
@@ -57,12 +58,12 @@ class DashboardController extends ContainerAware
         $resources = $registry->getResourcesFor($category);
 
         // setup crumb trail.
-        $crumb_trail = $this->container->get('ccdn_component_crumb.trail')
+        $crumbs = $this->container->get('ccdn_component_crumb.trail')
             ->add($this->container->get('translator')->trans('crumbs.category.index', array(), 'CCDNComponentDashboardBundle'), $this->container->get('router')->generate('ccdn_component_dashboard_index'), "sitemap")
             ->add($category, $this->container->get('router')->generate('ccdn_component_dashboard_show', array('category' => $category)), "sitemap");
 
         return $this->container->get('templating')->renderResponse('CCDNComponentDashboardBundle:Dashboard:show.html.' . $this->getEngine(), array(
-            'crumbs' => $crumb_trail,
+            'crumbs' => $crumbs,
             'resources' => $resources,
         ));
     }
@@ -70,7 +71,7 @@ class DashboardController extends ContainerAware
     /**
      *
      * @access protected
-     * @return string
+     * @return String
      */
     protected function getEngine()
     {

@@ -27,7 +27,8 @@ class IntegratorCompilerPass implements CompilerPassInterface
 
     /**
      *
-     *
+     * @access public
+ 	 * @param $container
      */
     public function process(ContainerBuilder $container)
     {
@@ -40,6 +41,6 @@ class IntegratorCompilerPass implements CompilerPassInterface
         foreach ($container->findTaggedServiceIds('ccdn_component_dashboard.integrator') as $id => $attributes) {
             $definition->addMethodCall('addIntegrator', array(new Reference($id)));
         }
-
     }
+
 }

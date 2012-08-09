@@ -23,6 +23,8 @@ interface IntegratorInterface
 
     /**
      *
+     * @access public
+     * @return Array()
      */
     public function getResources();
 

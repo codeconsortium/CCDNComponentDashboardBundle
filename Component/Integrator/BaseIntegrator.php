@@ -23,30 +23,37 @@ class BaseIntegrator
 
     /**
      *
+ 	 * @access protected
      */
     protected $container;
 
     /**
      *
+	 * @access protected
      */
     protected $basePath;
 
     /**
      *
+	 * @access protected
      */
     protected $baseUrl;
 
     /**
      *
+	 * @access protected
      */
     protected $locale;
 
     /**
      *
+	 * @access public
+	 * @param $container
      */
-    public function __construct($service_container)
+    public function __construct($container)
     {
-        $this->container = $service_container;
+        $this->container = $container;
+
         $this->baseUrl = $this->container->get('request')->getBaseUrl();
         $this->basePath = $this->container->get('request')->getBasePath();
         $this->locale = $this->container->get('request')->getSession()->getLocale();
@@ -54,6 +61,8 @@ class BaseIntegrator
 
     /**
      *
+	 * @access public
+	 * @return Array()
      */
     public function getResources()
     {

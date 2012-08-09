@@ -25,21 +25,25 @@ class DashboardRegistry extends ContainerAware
 
     /**
      *
+ 	 * @access protected
      */
     protected $container;
 
     /**
      *
-     *
+     * @access public
+  	 * @param $container
      */
-    public function __construct($service_container)
+    public function __construct($container)
     {
-        $this->container = $service_container;
+        $this->container = $container;
     }
 
     /**
      *
-     *
+     * @access public
+	 * @param $category
+	 * @return Array()
      */
     public function getResourcesFor($category)
     {
@@ -54,7 +58,8 @@ class DashboardRegistry extends ContainerAware
 
     /**
      *
-     *
+     * @access public
+ 	 * @return Array()
      */
     public function getResources()
     {
