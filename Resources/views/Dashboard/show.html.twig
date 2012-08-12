@@ -4,7 +4,7 @@
 	{{ parent() }}
 {% endblock %}
 
-{% block title %}{{- truncDot('title.dashboard' | trans({}, 'CCDNComponentDashboardBundle'), param('ccdn_component_dashboard.seo.title_length')) -}}{% endblock %}
+{% block title %}{{- truncDot('ccdn_component_dashboard.title.dashboard' | trans({}, 'CCDNComponentDashboardBundle'), param('ccdn_component_dashboard.seo.title_length')) -}}{% endblock %}
 
 {% block sidebar %}
 	{{ parent() }}
@@ -19,7 +19,7 @@
 
 	{%- include 'CCDNComponentCrumbTrailBundle:Trail:trail.html.twig' with {'crumbs': crumbs } -%}
 
-	<h2>{{- 'title.dashboard' | trans({}, 'CCDNComponentDashboardBundle') -}}</h2>
+	<h2>{{- 'ccdn_component_dashboard.title.dashboard' | trans({}, 'CCDNComponentDashboardBundle') -}}</h2>
 	<br>
 
 	{%- for resource_row, resource in resources -%}
@@ -35,7 +35,7 @@
 		{%- endfor -%}
 	{%- else -%}
 		<div class="center">
-			<div class="well">{{- 'dashboard.empty' | trans({}, 'CCDNComponentDashboardBundle') -}}</div>
+			<div class="well">{{- 'ccdn_component_dashboard.dashboard_empty' | trans({}, 'CCDNComponentDashboardBundle') -}}</div>
 		</div>
 	{%- endfor -%}
 

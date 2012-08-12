@@ -1,7 +1,7 @@
-layout.header_links.dashboard: 'Dashboard'
+ccdn_component_dashboard.layout.header_links.dashboard: 'Dashboard'
 
-crumbs.category.index: Index
+ccdn_component_dashboard.crumbs.category.index: Index
 
-title.dashboard: 'Dashboard.'
+ccdn_component_dashboard.title.dashboard: 'Dashboard.'
 
-dashboard.empty: 'There are no items on this dashboard.'
+ccdn_component_dashboard.dashboard_empty: 'There are no items on this dashboard.'
