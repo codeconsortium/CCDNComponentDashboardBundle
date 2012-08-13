@@ -1,7 +1,19 @@
+#
+# Layout Header Link Labels.
+#
 ccdn_component_dashboard.layout.header_links.dashboard: 'Dashboard'
 
-ccdn_component_dashboard.crumbs.category.index: Index
-
+#
+# Page Titles.
+#
 ccdn_component_dashboard.title.dashboard: 'Dashboard.'
 
+#
+# Crumbs.
+#
+ccdn_component_dashboard.crumbs.category.index: 'Index'
+
+#
+# Generic.
+#
 ccdn_component_dashboard.dashboard_empty: 'There are no items on this dashboard.'

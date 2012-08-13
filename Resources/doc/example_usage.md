@@ -95,8 +95,8 @@ If you wish to add the index page to the header links in the default template of
 ccdn_component_common:
     header_bar_links:
         - { bundle: CCDNComponentDashboardBundle, label: 'ccdn_component_dashboard.layout.header_links.dashboard', route: 'ccdn_component_dashboard_index' }
-        - { bundle: CCDNUserMemberBundle, label: 'layout.header_links.members', route: 'ccdn_user_member_index'}
-        - { bundle: CCDNForumForumBundle, label: 'layout.header_links.forum', route: ccdn_forum_forum_index }
+        - { bundle: CCDNUserMemberBundle, label: 'ccdn_user_member.layout.header_links.members', route: 'ccdn_user_member_index'}
+        - { bundle: CCDNForumForumBundle, label: 'ccdn_forum_forum.layout.header_links.forum', route: ccdn_forum_forum_index }
 ```
 
 - [Return back to the docs index](index.md).
