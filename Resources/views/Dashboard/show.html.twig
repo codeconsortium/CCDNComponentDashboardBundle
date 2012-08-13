@@ -9,6 +9,12 @@
 {% block sidebar %}
 	{{ parent() }}
 
+	{%- for resource_row, resource in resources -%}
+		{%- for category_row, category in resource -%}
+			<li><a href="#{{- category_row -}}"><i class="icon-folder-close"></i>&nbsp;{{- category_row -}}</a></li>
+		{%- endfor -%}
+	{%- endfor -%}
+	
 {% endblock %}
 
 {% block body %}
@@ -24,7 +30,9 @@
 
 	{%- for resource_row, resource in resources -%}
 		{%- for category_row, category in resource -%}
+			<div class="well" id="{{- category_row -}}">
 			<h5>{{- category_row -}}</h5>
+			</div>
 			<ul class="thumbnails">
 			{%- for item_row, item in category -%}
 				<li class="span2" style="text-align:center;">

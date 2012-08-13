@@ -89,7 +89,7 @@ class Configuration implements ConfigurationInterface
                         ->arrayNode('show')
                             ->addDefaultsIfNotSet()
                             ->children()
-                                ->scalarNode('layout_template')->defaultValue('CCDNComponentCommonBundle:Layout:layout_single_column.html.twig')->end()
+                                ->scalarNode('layout_template')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_right.html.twig')->end()
                             ->end()
                         ->end()
                     ->end()
