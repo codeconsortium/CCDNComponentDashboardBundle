@@ -9,6 +9,7 @@
 {% block sidebar %}
 	{{ parent() }}
 
+	<li class="nav-header">{{- 'ccdn_component_dashboard.sidebar.header.categories' |trans({}, 'CCDNComponentDashboardBundle') -}}</li>
 	{%- for resource_row, resource in resources -%}
 		{%- for category_row, category in resource -%}
 			<li><a href="#{{- category_row -}}"><i class="icon-folder-close"></i>&nbsp;{{- category_row -}}</a></li>

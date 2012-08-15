@@ -14,6 +14,11 @@ ccdn_component_dashboard.title.dashboard: 'Dashboard.'
 ccdn_component_dashboard.crumbs.category.index: 'Index'
 
 #
+# Sidebar.
+#
+ccdn_component_dashboard.sidebar.header.categories: 'Categories'
+
+#
 # Generic.
 #
 ccdn_component_dashboard.dashboard_empty: 'There are no items on this dashboard.'
