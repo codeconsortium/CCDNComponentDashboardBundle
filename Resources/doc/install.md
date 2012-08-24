@@ -1,22 +1,23 @@
-Installing CCDNComponent DashboardBundle 1.0
+Installing CCDNComponent DashboardBundle 1.2
 ============================================
 
 ## Dependencies:
 
-1. [CCDNComponent CommonBundle](https://github.com/codeconsortium/CommonBundle).
-2. [CCDNComponent CrumbTrailBundle](https://github.com/codeconsortium/CrumbTrailBundle).
+1. [CCDNComponent CommonBundle](https://github.com/codeconsortium/CommonBundle/tree/v1.2).
+2. [CCDNComponent CrumbTrailBundle](https://github.com/codeconsortium/CrumbTrailBundle/tree/v1.2).
 
 ## Installation:
 
-Installation takes only 7 steps:
+Installation takes only 8 steps:
 
 1. Download and install the dependencies.
 2. Register bundles with autoload.php.
 3. Register bundles with AppKernel.php.
 4. Run vendors install script.
-5. Update your app/config/routing.yml.
-6. Symlink assets to your public web directory.
-7. Warmup the cache.
+5. Update your app/config/config.yml.
+6. Update your app/config/routing.yml.
+7. Symlink assets to your public web directory.
+8. Warmup the cache.
 
 ### Step 1: Download and install the dependencies.
 
@@ -26,7 +27,7 @@ Append the following to end of your deps file (found in the root of your Symfony
 [CCDNComponentDashboardBundle]
 	git=http://github.com/codeconsortium/DashboardBundle.git
 	target=/bundles/CCDNComponent/DashboardBundle
-
+    version=v1.2
 ```
 
 ### Step 2: Register bundles with autoload.php.
@@ -64,7 +65,23 @@ From your projects root Symfony directory on the command line run:
 $ php bin/vendors install
 ```
 
-### Step 5: Update your app/config/routing.yml.
+### Step 5: Update your app/config/config.yml.
+
+In your app/config/config.yml add:    
+
+``` yml
+#
+# for CCDNComponent DashboardBundle
+#
+ccdn_component_dashboard:
+    template:
+        engine: twig
+    dashboard:
+        show:
+            layout_template: CCDNComponentCommonBundle:Layout:layout_body_right.html.twig
+```
+
+### Step 6: Update your app/config/routing.yml.
 
 In your app/config/routing.yml add:
 
@@ -75,7 +92,7 @@ CCDNComponentDashboardBundle:
 
 ```
 
-### Step 6: Symlink assets to your public web directory.
+### Step 7: Symlink assets to your public web directory.
 
 From your projects root Symfony directory on the command line run:
 
@@ -83,7 +100,7 @@ From your projects root Symfony directory on the command line run:
 $ php app/console assets:install --symlink web/
 ```
 
-### Step 7: Warmup the cache.
+### Step 8: Warmup the cache.
 
 From your projects root Symfony directory on the command line run:
 
