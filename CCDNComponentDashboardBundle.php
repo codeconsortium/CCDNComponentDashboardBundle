@@ -36,4 +36,23 @@ class CCDNComponentDashboardBundle extends Bundle
         $container->addCompilerPass(new IntegratorCompilerPass());
     }
 
+	/**
+	 *
+	 * @access public
+	 */
+	public function boot()
+	{
+		$twig = $this->container->get('twig');	
+		$twig->addGlobal('ccdn_component_dashboard', array(
+			'seo' => array(
+				'title_length' => $this->container->getParameter('ccdn_component_dashboard.seo.title_length'),
+			),
+			'dashboard' => array(
+				'show' => array(
+					'layout_template' => $this->container->getParameter('ccdn_component_dashboard.dashboard.show.layout_template'),
+				),
+			),
+		));
+	}
+	
 }
