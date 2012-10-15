@@ -48,7 +48,7 @@ class DashboardController extends ContainerAware
     /**
      *
      * @access public
-	 * @category String $category
+	 * @category string $category
      * @return RenderResponse
      */
     public function showAction($category)
@@ -71,7 +71,7 @@ class DashboardController extends ContainerAware
     /**
      *
      * @access protected
-     * @return String
+     * @return string
      */
     protected function getEngine()
     {

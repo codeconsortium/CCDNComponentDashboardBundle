@@ -43,7 +43,7 @@ class DashboardRegistry extends ContainerAware
      *
      * @access public
 	 * @param $category
-	 * @return Array()
+	 * @return array
      */
     public function getResourcesFor($category)
     {
@@ -58,22 +58,19 @@ class DashboardRegistry extends ContainerAware
 
     /**
      *
+     * Structure of Subscribers
+     * 	[DASHBOARD_PAGE <string>]
+     * 		[CATEGORY_NAME <string>]
+     *			[ROUTE_FOR_LINK <string>]
+     *				[AUTH <string>] (optional)
+     *				[URL_LINK <string>]
+     *				[URL_NAME <string>]
+     *
      * @access public
- 	 * @return Array()
+ 	 * @return array
      */
     public function getResources()
     {
-
-        //
-        //
-        // Structure of Subscribers
-        // 	[DASHBOARD_PAGE String]
-        // 		[CATEGORY_NAME String]
-        //			[ROUTE_FOR_LINK String]
-        //				[AUTH String]
-        //				[URL_LINK String]
-        //				[URL_NAME String]
-        //
         $subscribers = $this->container->get('ccdn_component_dashboard.integrator_chain')->getIntegrators();
 
         $resources = array();

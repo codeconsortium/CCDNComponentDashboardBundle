@@ -28,7 +28,7 @@ class IntegratorCompilerPass implements CompilerPassInterface
     /**
      *
      * @access public
- 	 * @param $container
+ 	 * @param ContainerBuilder $container
      */
     public function process(ContainerBuilder $container)
     {

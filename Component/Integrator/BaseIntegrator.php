@@ -61,22 +61,19 @@ class BaseIntegrator
 
     /**
      *
+     * Structure of $dashboards
+     * 	[DASHBOARD_PAGE <string>]
+     * 		[CATEGORY_NAME <string>]
+     *			[ROUTE_FOR_LINK <string>]
+     *				[AUTH <string>] (optional)
+     *				[URL_LINK <string>]
+     *				[URL_NAME <string>]
+	 *
 	 * @access public
-	 * @return Array()
+	 * @return array
      */
     public function getResources()
     {
-
-        /**
-         *
-         * Structure of $dashboards
-         * 	[DASHBOARD_PAGE String]
-         * 		[CATEGORY_NAME String]
-         *			[ROUTE_FOR_LINK String]
-         *				[AUTH String]
-         *				[URL_LINK String]
-         *				[URL_NAME String]
-         */
 
         return array();
     }

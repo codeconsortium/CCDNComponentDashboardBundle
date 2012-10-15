@@ -25,9 +25,14 @@ class IntegratorChain
 
     /**
      *
+	 * @access private
      */
     private $integrators;
 
+	/**
+	 *
+	 * @access public
+	 */
     public function __construct()
     {
         $this->integrators = array();
@@ -35,6 +40,8 @@ class IntegratorChain
 
     /**
      *
+ 	 * @access public
+	 * @param IntegratorInterface $integrator
      */
     public function addIntegrator(IntegratorInterface $integrator)
     {
@@ -43,6 +50,8 @@ class IntegratorChain
 
     /**
      *
+ 	 * @access public
+	 * @return array $integrators
      */
     public function getIntegrators()
     {

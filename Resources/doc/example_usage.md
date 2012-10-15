@@ -41,19 +41,19 @@ use CCDNComponent\DashboardBundle\Component\Integrator\BaseIntegrator;
 class DashboardIntegrator extends BaseIntegrator
 {
 
-
-
 	/**
 	 *
-	 *
 	 * Structure of $resources
-	 * 	[DASHBOARD_PAGE String]
-	 * 		[CATEGORY_NAME String]
-	 *			[ROUTE_FOR_LINK String]
-	 *				[AUTH String]
-	 *				[URL_LINK String]
-	 *				[URL_NAME String]
-	 */
+	 * 	[DASHBOARD_PAGE <string>]
+	 * 		[CATEGORY_NAME <string>]
+	 *  		[ROUTE_FOR_LINK <string>]
+	 *  			[AUTH <string>]
+	 *  			[URL_LINK <string>]
+	 *  			[URL_NAME <string>]
+	 *
+	 * @access public
+	 * @return array $resources
+	 */ 
 	public function getResources()
 	{
 		$resources = array(
