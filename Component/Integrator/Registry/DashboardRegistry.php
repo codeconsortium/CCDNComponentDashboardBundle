@@ -11,7 +11,7 @@
  * file that was distributed with this source code.
  */
 
-namespace CCDNComponent\DashboardBundle\Component\Registry;
+namespace CCDNComponent\DashboardBundle\Component\Integrator\Registry;
 
 use Symfony\Component\DependencyInjection\ContainerAware;
 

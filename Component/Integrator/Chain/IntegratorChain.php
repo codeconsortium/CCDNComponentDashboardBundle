@@ -11,7 +11,7 @@
  * file that was distributed with this source code.
  */
 
-namespace CCDNComponent\DashboardBundle\Component\Chain;
+namespace CCDNComponent\DashboardBundle\Component\Integrator\Chain;
 
 use CCDNComponent\DashboardBundle\Component\Integrator\IntegratorInterface;
 
