@@ -92,12 +92,15 @@ class DashboardRegistry extends ContainerAware
 
 					// Only show if NOT-logged in.
                     if (array_key_exists('no_auth', $item)) {
-						if ($container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY'))
+						if ($item['no_auth'] == true)
 						{
-                            // prune dead leaves if we have sufficient auth.
-                            unset($resources[$resourceKey][$categoryKey][$itemKey]);
+							if ($this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY'))
+							{
+	                            // prune dead leaves if we have sufficient auth.
+	                            unset($resources[$resourceKey][$categoryKey][$itemKey]);
 
-							continue;
+								continue;
+							}
 						}
                     }				
 					
