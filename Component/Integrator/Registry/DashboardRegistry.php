@@ -90,6 +90,17 @@ class DashboardRegistry extends ContainerAware
                         $resources[$resourceKey][$categoryKey][$itemKey]['url'] = $this->container->get('router')->generate($itemKey);
                     }
 
+					// Only show if NOT-logged in.
+                    if (array_key_exists('no_auth', $item)) {
+						if ($container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY'))
+						{
+                            // prune dead leaves if we have sufficient auth.
+                            unset($resources[$resourceKey][$categoryKey][$itemKey]);
+
+							continue;
+						}
+                    }				
+					
                     // if we don't have the right auth, then don't show it.
                     if (array_key_exists('auth', $item)) {
                         if ( ! $this->container->get('security.context')->isGranted($item['auth'])) {
