@@ -56,7 +56,7 @@ class BaseIntegrator
 
         $this->baseUrl = $this->container->get('request')->getBaseUrl();
         $this->basePath = $this->container->get('request')->getBasePath();
-        $this->locale = $this->container->get('request')->getSession()->getLocale();
+        $this->locale = $this->container->get('request')->getLocale();
     }
 
     /**
