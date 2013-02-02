@@ -2,7 +2,7 @@
     "name": "codeconsortium/ccdn-component-dashboard-bundle",
     "type": "symfony-bundle",
     "description": "CCDN Component Dashboard Bundle",
-    "keywords": ["forum", "board"],
+    "keywords": ["ccdn", "codeconsortium", "dashboard"],
     "homepage": "http://github.com/codeconsortium/CCDNComponentDashboardBundle",
     "license": "MIT",
     "authors": [
