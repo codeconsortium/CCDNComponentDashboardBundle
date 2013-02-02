@@ -1,7 +1,7 @@
 {
     "name": "codeconsortium/ccdn-component-dashboard-bundle",
     "type": "symfony-bundle",
-    "description": "CCDN Forum dashboard bundle",
+    "description": "CCDN Component Dashboard Bundle",
     "keywords": ["forum", "board"],
     "homepage": "http://github.com/codeconsortium/CCDNComponentDashboardBundle",
     "license": "MIT",
