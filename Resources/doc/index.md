@@ -3,7 +3,7 @@ CCDNComponent DashboardBundle Documentation.
 
 ## Prerequisites
 
-This version of the bundle requires Symfony 2.0.11.
+This version of the bundle requires Symfony 2.1.x
 
 ### Translations
 
@@ -20,6 +20,6 @@ For more information about translations, check [Symfony documentation](http://sy
 
 ## Installation Documentation:
 
-- [Installing CCDNComponent DashboardBundle for Symfony 2.0.11](install.md).
+- [Installing CCDNComponent DashboardBundle for Symfony 2.1.x](install.md).
 - [Configuration Reference](configuration_reference.md).
 - [Example Usage](example_usage.md).
