@@ -12,6 +12,7 @@ Installation takes only 2 steps:
 
 1. Download and install dependencies via Composer.
 2. Register bundles with AppKernel.php.
+3. Update your app/config/routing.yml.
 
 ### Step 1: Download and install dependencies via Composer.
 
@@ -53,6 +54,18 @@ public function registerBundles()
 	);
 }
 ```
+
+### Step 3: Update your app/config/routing.yml.
+
+In your app/config/routing.yml add:
+
+``` yml
+CCDNComponentDashboardBundle:
+    resource: "@CCDNComponentDashboardBundle/Resources/config/routing.yml"
+    prefix: /
+```
+
+You can change the route of the standalone route to any route you like, it is included for convenience.
 
 ## Next Steps.
 
