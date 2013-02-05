@@ -8,7 +8,7 @@ Installing CCDNComponent DashboardBundle 1.x
 
 ## Installation:
 
-Installation takes only 2 steps:
+Installation takes only 3 steps:
 
 1. Download and install dependencies via Composer.
 2. Register bundles with AppKernel.php.
