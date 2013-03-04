@@ -67,6 +67,17 @@ CCDNComponentDashboardBundle:
 
 You can change the route of the standalone route to any route you like, it is included for convenience.
 
+### Translations
+
+If you wish to use default texts provided in this bundle, you have to make sure you have translator enabled in your config.
+
+``` yaml
+# app/config/config.yml
+
+framework:
+    translator: ~
+```
+
 ## Next Steps.
 
 Installation should now be complete!

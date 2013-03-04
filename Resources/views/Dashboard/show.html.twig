@@ -1,18 +1,16 @@
-{% extends ccdn_component_dashboard.dashboard.show.layout_template %}
+{% extends 'CCDNComponentDashboardBundle::base.html.twig' %}
 
-{% block stylesheets %}
-	{{ parent() }}
-{% endblock %}
+{% set LayoutTemplate = ccdn_component_dashboard.dashboard.show.layout_template %}
 
 {% block title %}{{- truncDot('ccdn_component_dashboard.title.dashboard' | trans({}, 'CCDNComponentDashboardBundle'), ccdn_component_dashboard.seo.title_length) -}}{% endblock %}
 
-{% block sidebar %}
+{% block sidebar_extra_bottom %}
 	{{ parent() }}
 
 	<li class="nav-header">{{- 'ccdn_component_dashboard.sidebar.header.categories' |trans({}, 'CCDNComponentDashboardBundle') -}}</li>
 	{%- for resource_row, resource in resources -%}
 		{%- for category_row, category in resource -%}
-			<li><a href="#{{- category_row -}}"><i class="icon-folder-close"></i>&nbsp;{{- category_row -}}</a></li>
+			<li><a href="#{{- category_row -}}"><i class="icon-folder-close"></i>{{- category_row -}}</a></li>
 		{%- endfor -%}
 	{%- endfor -%}
 	
@@ -24,31 +22,27 @@
 
 	{%- include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' -%}
 
-	{%- include 'CCDNComponentCrumbTrailBundle:Trail:trail.html.twig' with {'crumbs': crumbs } -%}
-
-	<h2>{{- 'ccdn_component_dashboard.title.dashboard' | trans({}, 'CCDNComponentDashboardBundle') -}}</h2>
-	<br>
-
 	{%- for resource_row, resource in resources -%}
 		{%- for category_row, category in resource -%}
-			<div class="well" id="{{- category_row -}}">
-			<h5>{{- category_row -}}</h5>
-			</div>
-			<ul class="thumbnails">
-			{%- for item_row, item in category -%}
-				<li class="span2" style="text-align:center;">
-					<a class="thumbnail" href="{{- item.url -}}"><img class="icon32" width="32" height="32" src="{{- item.icon -}}" alt="{{- item.name -}}">{{- item.name -}}</a>
-				</li>
-			{%- endfor -%}
-			</ul>
+			<section class="" id="{{- category_row -}}">
+				<h5>{{- category_row -}}</h5>
+				<ul class="thumbnails">
+					{%- for item_row, item in category -%}
+						<li class="span2" style="text-align:center;">
+							<a class="thumbnail" href="{{- item.url -}}">
+								<img class="icon32" width="32" height="32" src="{{- item.icon -}}" alt="{{- item.name -}}">
+								{{- item.name -}}
+							</a>
+						</li>
+					{%- endfor -%}
+				</ul>
+			</section>
 		{%- endfor -%}
 	{%- else -%}
 		<div class="center">
-			<div class="well">{{- 'ccdn_component_dashboard.dashboard_empty' | trans({}, 'CCDNComponentDashboardBundle') -}}</div>
+			{{- 'ccdn_component_dashboard.dashboard_empty' | trans({}, 'CCDNComponentDashboardBundle') -}}
 		</div>
 	{%- endfor -%}
-
-	{%- include 'CCDNComponentCrumbTrailBundle:Trail:trail.html.twig' with {'crumbs': crumbs } -%}
 
 	{%- endspaceless -%}
 
