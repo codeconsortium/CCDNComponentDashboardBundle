@@ -20,12 +20,15 @@
 
 	{%- spaceless -%}
 
-	{%- include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' -%}
-
 	{%- for resource_row, resource in resources -%}
 		{%- for category_row, category in resource -%}
-			<section class="" id="{{- category_row -}}">
+			<br>
+			
+			<header>
 				<h5>{{- category_row -}}</h5>
+			</header>
+
+			<section id="{{- category_row -}}">
 				<ul class="thumbnails">
 					{%- for item_row, item in category -%}
 						<li class="span2" style="text-align:center;">
@@ -39,11 +42,13 @@
 			</section>
 		{%- endfor -%}
 	{%- else -%}
-		<div class="center">
-			{{- 'ccdn_component_dashboard.dashboard_empty' | trans({}, 'CCDNComponentDashboardBundle') -}}
-		</div>
+		<section>
+			<div class="center">
+				{{- 'ccdn_component_dashboard.dashboard_empty' | trans({}, 'CCDNComponentDashboardBundle') -}}
+			</div>
+		</section>
 	{%- endfor -%}
 
 	{%- endspaceless -%}
 
-{% endblock %}
+{% endblock body_content %}
