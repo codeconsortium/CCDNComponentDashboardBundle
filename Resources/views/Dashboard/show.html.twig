@@ -20,37 +20,34 @@
 
 	{%- spaceless -%}
 
-	{%- for resource_row, resource in resources -%}
-		{%- for category_row, category in resource -%}
-			{% if category_row is not empty and category is not empty %}
-				<header class="clearfix">
-					<h5>{{- category_row -}}</h5>
-				</header>
+		{%- for resource_row, resource in resources -%}
+			{%- for category_row, category in resource -%}
+				{% if category_row is not empty and category is not empty %}
+					<header class="clearfix">
+						<div class="span12">
+							<h4>{{- category_row -}}</h4>
+						</div>
+					</header>
 
-				<section id="{{- category_row -}}" class="clearfix">
-					<ul class="thumbnails">
-						{%- for item_row, item in category -%}
-							<li class="span2" style="text-align:center;">
-								<a class="thumbnail" href="{{- item.url -}}">
-									<img class="icon32" width="32" height="32" src="{{- item.icon -}}" alt="{{- item.name -}}">
-									{{- item.name -}}
-								</a>
-							</li>
-						{%- endfor -%}
-					</ul>
-				</section>
-				<br>
-			{% endif %}
-		{%- endfor -%}	
-	{%- else -%}
-		<section>
-			<div class="center">
+					<section id="{{- category_row -}}" class="clearfix">
+						<ul class="thumbnails">
+							{%- for item_row, item in category -%}
+								<li class="span2" style="text-align:center;">
+									<a class="thumbnail" href="{{- item.url -}}">
+										<img class="icon32" width="32" height="32" src="{{- item.icon -}}" alt="{{- item.name -}}">
+										{{- item.name -}}
+									</a>
+								</li>
+							{%- endfor -%}
+						</ul>
+					</section>
+				{% endif %}
+			{%- endfor -%}	
+		{%- else -%}
+			<div class="center clearfix article">
 				{{- 'ccdn_component_dashboard.dashboard_empty' | trans({}, 'CCDNComponentDashboardBundle') -}}
 			</div>
-		</section>
-	{%- endfor -%}
-	
-	<div class="clearfix section"></div>
+		{%- endfor -%}
 
 	{%- endspaceless -%}
 

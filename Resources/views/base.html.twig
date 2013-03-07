@@ -6,8 +6,14 @@
     {{ parent() }}
     <link href="{{- asset('bundles/ccdnforumforum/css/theme.css') -}}" rel="stylesheet" type="text/css">
     <link href="{{- asset('bundles/ccdncomponentbbcode/css/bbcode.css') -}}" rel="stylesheet" type="text/css">
+	
 	{% block stylesheets_extra %}
 	{% endblock stylesheets_extra %}
+	
+	<style type="text/css">
+		section {border-bottom:none;}
+		.page-footer {border-top:1px solid #eee !important;}
+	</style>
 {% endblock stylesheets %}
 
 
@@ -54,7 +60,7 @@
 
 {% block body %}
 	{%- spaceless -%}
-
+	
 	{% block body_content %}
 	{% endblock body_content %}
 
