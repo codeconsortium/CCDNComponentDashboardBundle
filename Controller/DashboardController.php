@@ -13,17 +13,15 @@
 
 namespace CCDNComponent\DashboardBundle\Controller;
 
-use Symfony\Component\DependencyInjection\ContainerAware;
-//use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use CCDNComponent\DashboardBundle\Controller\BaseController;
 
 /**
  *
  * @author Reece Fowell <reece@codeconsortium.com>
  * @version 1.0
  */
-class DashboardController extends ContainerAware
+class DashboardController extends BaseController
 {
-
     /**
      *
      * @access public
@@ -36,10 +34,10 @@ class DashboardController extends ContainerAware
         $resources = $registry->getResources();
 
         // setup crumb trail.
-        $crumbs = $this->container->get('ccdn_component_crumb.trail')
-            ->add($this->container->get('translator')->trans('ccdn_component_dashboard.crumbs.category.index', array(), 'CCDNComponentDashboardBundle'), $this->container->get('router')->generate('ccdn_component_dashboard_index'), "sitemap");
+        $crumbs = $this->getCrumbs()
+            ->add($this->trans('ccdn_component_dashboard.crumbs.category.index'), $this->path('ccdn_component_dashboard_index'));
 
-        return $this->container->get('templating')->renderResponse('CCDNComponentDashboardBundle:Dashboard:show.html.' . $this->getEngine(), array(
+        return $this->renderResponse('CCDNComponentDashboardBundle:Dashboard:show.html.', array(
             'crumbs' => $crumbs,
             'resources' => $resources,
         ));
@@ -59,23 +57,12 @@ class DashboardController extends ContainerAware
 
         // setup crumb trail.
         $crumbs = $this->container->get('ccdn_component_crumb.trail')
-            ->add($this->container->get('translator')->trans('ccdn_component_dashboard.crumbs.category.index', array(), 'CCDNComponentDashboardBundle'), $this->container->get('router')->generate('ccdn_component_dashboard_index'), "sitemap")
-            ->add($category, $this->container->get('router')->generate('ccdn_component_dashboard_show', array('category' => $category)), "sitemap");
+            ->add($this->trans('ccdn_component_dashboard.crumbs.category.index'), $this->path('ccdn_component_dashboard_index'))
+            ->add($category, $this->path('ccdn_component_dashboard_show', array('category' => $category)));
 
-        return $this->container->get('templating')->renderResponse('CCDNComponentDashboardBundle:Dashboard:show.html.' . $this->getEngine(), array(
+        return $this->renderResponse('CCDNComponentDashboardBundle:Dashboard:show.html.', array(
             'crumbs' => $crumbs,
             'resources' => $resources,
         ));
     }
-
-    /**
-     *
-     * @access protected
-     * @return string
-     */
-    protected function getEngine()
-    {
-        return $this->container->getParameter('ccdn_component_dashboard.template.engine');
-    }
-
 }
