@@ -4,8 +4,6 @@ parameters:
 
     ccdn_component_dashboard.integrator_chain.class: CCDNComponent\DashboardBundle\Component\Integrator\Chain\IntegratorChain
 
-    ccdn_component_dashboard.component.menu_builder.menu.class: CCDNComponent\DashboardBundle\Component\MenuBuilder\Menu
-
 services:
 
     #
@@ -21,11 +19,4 @@ services:
     ccdn_component_dashboard.integrator_chain:
         class: %ccdn_component_dashboard.integrator_chain.class%
 
-    #
-    # Menu Builder.
-    #
-    ccdn_component_dashboard.component.menu_builder.menu:
-        class: %ccdn_component_dashboard.component.menu_builder.menu.class%
-        tags:
-            - { name: ccdn_component_menu.menu_builder }
     
