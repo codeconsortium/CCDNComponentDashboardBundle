@@ -1,9 +1,12 @@
 parameters:
 
+    # Service Parameters defined in app/config
     ccdn_component_dashboard.registry.class:         CCDNComponent\DashboardBundle\Component\Integrator\Registry\DashboardRegistry
 
     ccdn_component_dashboard.integrator_chain.class: CCDNComponent\DashboardBundle\Component\Integrator\Chain\IntegratorChain
 
+    #ccdn_component_dashboard.component.integrator.registry.class
+    #ccdn_component_dashboard.component.integrator.chain.class
 services:
 
     #

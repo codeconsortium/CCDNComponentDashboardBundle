@@ -27,18 +27,16 @@ use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
  */
 class Configuration implements ConfigurationInterface
 {
-
     /**
-     * {@inheritDoc}
+     *
+	 * @access public
+	 * @return \Symfony\Component\Config\Definition\Builder\TreeBuilder
      */
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('ccdn_component_dashboard');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
         $rootNode
             ->children()
                 ->arrayNode('template')
@@ -49,16 +47,68 @@ class Configuration implements ConfigurationInterface
                 ->end()
             ->end();
 
-        $this->addSEOSection($rootNode);
-        $this->addDashboardSection($rootNode);
+		// Class file namespaces.
+		$this
+			->addComponentSection($rootNode)
+		;
+		
+		// Configuration stuff.
+        $this
+			->addSEOSection($rootNode)
+        	->addDashboardSection($rootNode)
+		;
 
         return $treeBuilder;
     }
 
     /**
      *
+     * @access private
+     * @param \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition $node
+	 * @return \CCDNComponent\DashboardBundle\DependencyInjection\Configuration
+     */
+    private function addComponentSection(ArrayNodeDefinition $node)
+    {
+        $node
+            ->addDefaultsIfNotSet()
+            ->children()
+                ->arrayNode('component')
+                    ->addDefaultsIfNotSet()
+                    ->canBeUnset()
+                    ->children()
+		                ->arrayNode('integrator')
+		                    ->addDefaultsIfNotSet()
+		                    ->canBeUnset()
+		                    ->children()
+				                ->arrayNode('registry')
+				                    ->addDefaultsIfNotSet()
+				                    ->canBeUnset()
+				                    ->children()
+										->scalarNode('class')->defaultValue('CCDNComponent\DashboardBundle\Component\Integrator\Registry\DashboardRegistry')->end()							
+									->end()
+								->end()
+				                ->arrayNode('chain')
+				                    ->addDefaultsIfNotSet()
+				                    ->canBeUnset()
+				                    ->children()
+										->scalarNode('class')->defaultValue('CCDNComponent\DashboardBundle\Component\Integrator\Chain\IntegratorChain')->end()							
+									->end()
+								->end()
+							->end()		
+						->end()
+					->end()
+				->end()
+			->end()
+		;
+		
+		return $this;
+	}
+	
+    /**
+     *
      * @access protected
      * @param ArrayNodeDefinition $node
+	 * @return \CCDNComponent\DashboardBundle\DependencyInjection\Configuration
      */
     protected function addSEOSection(ArrayNodeDefinition $node)
     {
@@ -71,13 +121,17 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('title_length')->defaultValue('67')->end()
                     ->end()
                 ->end()
-            ->end();
+            ->end()
+		;
+		
+		return $this;
     }
 
     /**
      *
      * @access private
      * @param ArrayNodeDefinition $node
+	 * @return \CCDNComponent\DashboardBundle\DependencyInjection\Configuration
      */
     private function addDashboardSection(ArrayNodeDefinition $node)
     {
@@ -95,7 +149,9 @@ class Configuration implements ConfigurationInterface
                         ->end()
                     ->end()
                 ->end()
-            ->end();
+            ->end()
+		;
+		
+		return $this;
     }
-
 }

@@ -28,9 +28,10 @@ use Symfony\Component\Config\FileLocator;
  */
 class CCDNComponentDashboardExtension extends Extension
 {
-
     /**
-     * {@inheritDoc}
+	 *
+     * @access public
+	 * @return string
      */
     public function getAlias()
     {
@@ -38,41 +39,74 @@ class CCDNComponentDashboardExtension extends Extension
     }
 
     /**
-     * {@inheritDoc}
+     *
+     * @access public
+	 * @param array $config
+     * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
      */
     public function load(array $configs, ContainerBuilder $container)
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
-
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.yml');
-
+		
+		// Class file namespaces.
+        $this
+			->getComponentSection($config, $container)
+		;
+			
+		// Configuration stuff.
         $container->setParameter('ccdn_component_dashboard.template.engine', $config['template']['engine']);
 
-        $this->getSEOSection($container, $config);
-        $this->getDashboardSection($container, $config);
+        $this
+			->getSEOSection($config, $container)
+	        ->getDashboardSection($config, $container)
+		;
 
+		// Load Service definitions.
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load('services.yml');
     }
-
+	
     /**
      *
-     * @access protected
-     * @param $container, $config
+     * @access private
+	 * @param array $config
+     * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
+	 * @return \CCDNComponent\DashboardBundle\DependencyInjection\CCDNComponentDashboardExtension
      */
-    protected function getSEOSection($container, $config)
+    private function getComponentSection(array $config, ContainerBuilder $container)
+    {
+        $container->setParameter('ccdn_component_dashboard.component.integrator.registry.class', $config['component']['integrator']['registry']['class']);		
+        $container->setParameter('ccdn_component_dashboard.component.integrator.chain.class', $config['component']['integrator']['chain']['class']);		
+
+		return $this;
+	}
+	
+    /**
+     *
+     * @access private
+	 * @param array $config
+     * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
+	 * @return \CCDNComponent\DashboardBundle\DependencyInjection\CCDNComponentDashboardExtension
+     */
+    private function getSEOSection(array $config, ContainerBuilder $container)
     {
         $container->setParameter('ccdn_component_dashboard.seo.title_length', $config['seo']['title_length']);
+		
+		return $this;
     }
 
     /**
      *
      * @access private
-     * @param $container, $config
+	 * @param array $config
+     * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
+	 * @return \CCDNComponent\DashboardBundle\DependencyInjection\CCDNComponentDashboardExtension
      */
-    private function getDashboardSection($container, $config)
+    private function getDashboardSection(array $config, ContainerBuilder $container)
     {
         $container->setParameter('ccdn_component_dashboard.dashboard.show.layout_template', $config['dashboard']['show']['layout_template']);
+		
+		return $this;
     }
-
 }

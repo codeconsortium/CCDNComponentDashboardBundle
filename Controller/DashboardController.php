@@ -56,7 +56,7 @@ class DashboardController extends BaseController
         $resources = $registry->getResourcesFor($category);
 
         // setup crumb trail.
-        $crumbs = $this->container->get('ccdn_component_crumb.trail')
+        $crumbs = $this->getCrumbs()
             ->add($this->trans('ccdn_component_dashboard.crumbs.category.index'), $this->path('ccdn_component_dashboard_index'))
             ->add($category, $this->path('ccdn_component_dashboard_show', array('category' => $category)));
 
