@@ -24,7 +24,6 @@ use Symfony\Component\DependencyInjection\Reference;
  */
 class IntegratorCompilerPass implements CompilerPassInterface
 {
-
     /**
      *
      * @access public
@@ -42,5 +41,4 @@ class IntegratorCompilerPass implements CompilerPassInterface
             $definition->addMethodCall('addIntegrator', array(new Reference($id)));
         }
     }
-
 }

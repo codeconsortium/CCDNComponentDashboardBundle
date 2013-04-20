@@ -31,16 +31,21 @@ class DashboardController extends BaseController
     {
         $registry = $this->container->get('ccdn_component_dashboard.registry');
 
-        $resources = $registry->getResources();
-
+        $categories = $registry->getCategories();
+		$pages = $registry->getPages();
+		
         // setup crumb trail.
         $crumbs = $this->getCrumbs()
             ->add($this->trans('ccdn_component_dashboard.crumbs.category.index'), $this->path('ccdn_component_dashboard_index'));
 
-        return $this->renderResponse('CCDNComponentDashboardBundle:Dashboard:show.html.', array(
-            'crumbs' => $crumbs,
-            'resources' => $resources,
-        ));
+        return $this->renderResponse('CCDNComponentDashboardBundle:Dashboard:show.html.',
+			array(
+	            'crumbs' => $crumbs,
+				'pages' => $pages,
+				'currentPage' => 'default',
+	            'categories' => $categories,
+	        )
+		);
     }
 
     /**
@@ -49,20 +54,25 @@ class DashboardController extends BaseController
 	 * @category string $category
      * @return RenderResponse
      */
-    public function showAction($category)
+    public function showAction($pageName)
     {
         $registry = $this->container->get('ccdn_component_dashboard.registry');
 
-        $resources = $registry->getResourcesFor($category);
-
+        $categories = $registry->getCategoriesForPage($pageName);
+		$pages = $registry->getPages();
+		
         // setup crumb trail.
         $crumbs = $this->getCrumbs()
             ->add($this->trans('ccdn_component_dashboard.crumbs.category.index'), $this->path('ccdn_component_dashboard_index'))
-            ->add($category, $this->path('ccdn_component_dashboard_show', array('category' => $category)));
+            ->add($pageName, $this->path('ccdn_component_dashboard_show', array('pageName' => $pageName)));
 
-        return $this->renderResponse('CCDNComponentDashboardBundle:Dashboard:show.html.', array(
-            'crumbs' => $crumbs,
-            'resources' => $resources,
-        ));
+        return $this->renderResponse('CCDNComponentDashboardBundle:Dashboard:show.html.',
+			array(
+	            'crumbs' => $crumbs,
+				'pages' => $pages,
+				'currentPage' => $pageName,
+	            'categories' => $categories,
+	        )
+		);
     }
 }

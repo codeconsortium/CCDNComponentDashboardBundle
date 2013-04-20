@@ -3,5 +3,5 @@ ccdn_component_dashboard_index:
     defaults: { _controller: CCDNComponentDashboardBundle:Dashboard:index, _locale: en }
 
 ccdn_component_dashboard_show:
-    pattern: /{_locale}/dashboard/{category}
+    pattern: /{_locale}/dashboard/{pageName}
     defaults: { _controller: CCDNComponentDashboardBundle:Dashboard:show, _locale: en }

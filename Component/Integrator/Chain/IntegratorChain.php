@@ -13,8 +13,6 @@
 
 namespace CCDNComponent\DashboardBundle\Component\Integrator\Chain;
 
-use CCDNComponent\DashboardBundle\Component\Integrator\IntegratorInterface;
-
 /**
  *
  * @author Reece Fowell <reece@codeconsortium.com>
@@ -22,7 +20,6 @@ use CCDNComponent\DashboardBundle\Component\Integrator\IntegratorInterface;
  */
 class IntegratorChain
 {
-
     /**
      *
 	 * @access private
@@ -43,7 +40,7 @@ class IntegratorChain
  	 * @access public
 	 * @param IntegratorInterface $integrator
      */
-    public function addIntegrator(IntegratorInterface $integrator)
+    public function addIntegrator($integrator)
     {
         $this->integrators[] = $integrator;
     }
@@ -57,5 +54,4 @@ class IntegratorChain
     {
         return $this->integrators;
     }
-
 }

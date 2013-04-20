@@ -8,10 +8,25 @@
 	{{ parent() }}
 
 	<li class="nav-header">{{- 'ccdn_component_dashboard.sidebar.header.categories' |trans({}, 'CCDNComponentDashboardBundle') -}}</li>
-	{%- for resource_row, resource in resources -%}
-		{%- for category_row, category in resource -%}
-			<li><a href="#{{- category_row -}}"><i class="icon-folder-close"></i>{{- category_row -}}</a></li>
-		{%- endfor -%}
+	
+	<li{%- if currentPage == 'default' %} class="active"{%- endif -%}>
+		<a href="{{- path('ccdn_component_dashboard_index') -}}">
+			All
+		</a>
+	</li>
+		
+	{%- for page in pages -%}
+		
+		{%- if page.countCategories() > 0 -%}
+			
+			<li{%- if page.getName() == currentPage %} class="active"{%- endif -%}>
+				<a href="{{- path('ccdn_component_dashboard_show', {'pageName': page.getName()}) -}}">
+					{{- page.getLabel() -}}
+				</a>
+			</li>
+			
+		{%- endif -%}
+	
 	{%- endfor -%}
 	
 {% endblock %}
@@ -20,6 +35,38 @@
 
 	{%- spaceless -%}
 
+		{%- for category in categories -%}
+
+			{%- if category.countLinks() > 0 -%}
+		
+				<header class="clearfix">
+					<div class="span12">
+						<h4>{{- category.getLabel() -}}</h4>
+					</div>
+				</header>
+		
+				<section id="{{- category.getLabel() -}}" class="clearfix">
+					<ul class="thumbnails">
+						{%- for link in category.getLinks() -%}
+					
+							{%- if link.isAuthorised() -%}
+								<li class="span2" style="text-align:center;">
+									<a class="thumbnail" href="{{- link.getPath() -}}">
+										<img class="icon32" width="32" height="32" src="{{- link.getIcon() -}}" alt="{{- link.getLabel() -}}">
+										{{- link.getLabel() -}}
+									</a>
+								</li>
+							{%- endif -%}
+						
+						{%- endfor -%}
+					</ul>
+				</section>
+				
+			{%- endif -%}
+			
+		{%- endfor -%}
+		
+	{#
 		{%- for resource_row, resource in resources -%}
 			{%- for category_row, category in resource -%}
 				{% if category_row is not empty and category is not empty %}
@@ -48,7 +95,7 @@
 				{{- 'ccdn_component_dashboard.dashboard_empty' | trans({}, 'CCDNComponentDashboardBundle') -}}
 			</div>
 		{%- endfor -%}
-
+	#}
 	{%- endspaceless -%}
 
 {% endblock body_content %}
