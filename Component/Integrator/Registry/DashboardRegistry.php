@@ -18,7 +18,7 @@ namespace CCDNComponent\DashboardBundle\Component\Integrator\Registry;
  * @author Reece Fowell <reece@codeconsortium.com>
  * @version 2.0
  */
-class DashboardRegistry extends ContainerAware
+class DashboardRegistry
 {
     /**
      *
