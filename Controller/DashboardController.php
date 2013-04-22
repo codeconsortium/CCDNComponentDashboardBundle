@@ -17,8 +17,14 @@ use CCDNComponent\DashboardBundle\Controller\BaseController;
 
 /**
  *
- * @author Reece Fowell <reece@codeconsortium.com>
- * @version 1.0
+ * @category CCDNComponent
+ * @package  DashboardBundle
+ *
+ * @author   Reece Fowell <reece@codeconsortium.com>
+ * @license  http://opensource.org/licenses/MIT MIT
+ * @version  Release: 2.0
+ * @link     https://github.com/codeconsortium/CCDNComponentDashboardBundle
+ *
  */
 class DashboardController extends BaseController
 {
@@ -32,26 +38,26 @@ class DashboardController extends BaseController
         $registry = $this->container->get('ccdn_component_dashboard.registry');
 
         $categories = $registry->getCategories();
-		$pages = $registry->getPages();
-		
+        $pages = $registry->getPages();
+
         // setup crumb trail.
         $crumbs = $this->getCrumbs()
             ->add($this->trans('ccdn_component_dashboard.crumbs.category.index'), $this->path('ccdn_component_dashboard_index'));
 
         return $this->renderResponse('CCDNComponentDashboardBundle:Dashboard:show.html.',
-			array(
-	            'crumbs' => $crumbs,
-				'pages' => $pages,
-				'currentPage' => 'default',
-	            'categories' => $categories,
-	        )
-		);
+            array(
+                'crumbs' => $crumbs,
+                'pages' => $pages,
+                'currentPage' => 'default',
+                'categories' => $categories,
+            )
+        );
     }
 
     /**
      *
      * @access public
-	 * @category string $category
+     * @category string $category
      * @return RenderResponse
      */
     public function showAction($pageName)
@@ -59,20 +65,20 @@ class DashboardController extends BaseController
         $registry = $this->container->get('ccdn_component_dashboard.registry');
 
         $categories = $registry->getCategoriesForPage($pageName);
-		$pages = $registry->getPages();
-		
+        $pages = $registry->getPages();
+
         // setup crumb trail.
         $crumbs = $this->getCrumbs()
             ->add($this->trans('ccdn_component_dashboard.crumbs.category.index'), $this->path('ccdn_component_dashboard_index'))
             ->add($pageName, $this->path('ccdn_component_dashboard_show', array('pageName' => $pageName)));
 
         return $this->renderResponse('CCDNComponentDashboardBundle:Dashboard:show.html.',
-			array(
-	            'crumbs' => $crumbs,
-				'pages' => $pages,
-				'currentPage' => $pageName,
-	            'categories' => $categories,
-	        )
-		);
+            array(
+                'crumbs' => $crumbs,
+                'pages' => $pages,
+                'currentPage' => $pageName,
+                'categories' => $categories,
+            )
+        );
     }
 }

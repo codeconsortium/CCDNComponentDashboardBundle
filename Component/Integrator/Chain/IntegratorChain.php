@@ -15,21 +15,27 @@ namespace CCDNComponent\DashboardBundle\Component\Integrator\Chain;
 
 /**
  *
- * @author Reece Fowell <reece@codeconsortium.com>
- * @version 1.0
+ * @category CCDNComponent
+ * @package  DashboardBundle
+ *
+ * @author   Reece Fowell <reece@codeconsortium.com>
+ * @license  http://opensource.org/licenses/MIT MIT
+ * @version  Release: 2.0
+ * @link     https://github.com/codeconsortium/CCDNComponentDashboardBundle
+ *
  */
 class IntegratorChain
 {
     /**
      *
-	 * @access private
+     * @access private
      */
     private $integrators;
 
-	/**
-	 *
-	 * @access public
-	 */
+    /**
+     *
+     * @access public
+     */
     public function __construct()
     {
         $this->integrators = array();
@@ -37,8 +43,8 @@ class IntegratorChain
 
     /**
      *
- 	 * @access public
-	 * @param IntegratorInterface $integrator
+      * @access public
+     * @param IntegratorInterface $integrator
      */
     public function addIntegrator($integrator)
     {
@@ -47,8 +53,8 @@ class IntegratorChain
 
     /**
      *
- 	 * @access public
-	 * @return array $integrators
+      * @access public
+     * @return array $integrators
      */
     public function getIntegrators()
     {

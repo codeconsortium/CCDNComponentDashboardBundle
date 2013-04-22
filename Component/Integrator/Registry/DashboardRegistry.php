@@ -15,108 +15,114 @@ namespace CCDNComponent\DashboardBundle\Component\Integrator\Registry;
 
 /**
  *
- * @author Reece Fowell <reece@codeconsortium.com>
- * @version 2.0
+ * @category CCDNComponent
+ * @package  DashboardBundle
+ *
+ * @author   Reece Fowell <reece@codeconsortium.com>
+ * @license  http://opensource.org/licenses/MIT MIT
+ * @version  Release: 2.0
+ * @link     https://github.com/codeconsortium/CCDNComponentDashboardBundle
+ *
  */
 class DashboardRegistry
 {
     /**
      *
- 	 * @access protected
+      * @access protected
      */
     protected $integratorChain;
-	
-	/**
-	 *
-	 * @access protected
-	 * @var \CCDNComponent\DashboardBundle\Component\Integrator\Model\Builder
-	 */
-	protected $builder;
 
-	/**
-	 *
-	 * @access protected
-	 * @var bool $built
-	 */
-	protected $built;
-	
+    /**
+     *
+     * @access protected
+     * @var \CCDNComponent\DashboardBundle\Component\Integrator\Model\Builder
+     */
+    protected $builder;
+
+    /**
+     *
+     * @access protected
+     * @var bool $built
+     */
+    protected $built;
+
     /**
      *
      * @access public
-  	 * @param $container
+       * @param $container
      */
     public function __construct($integratorChain, $builder)
     {
         $this->integratorChain = $integratorChain;
-		
-		$this->builder = $builder;
-		
-		$this->built = false;
+
+        $this->builder = $builder;
+
+        $this->built = false;
     }
 
-	/**
-	 *
-	 * @access public
-	 */
-	public function build()
-	{
-		if (false == $this->built) {
-	        $subscribers = $this->integratorChain->getIntegrators();
+    /**
+     *
+     * @access public
+     */
+    public function build()
+    {
+        if (false == $this->built) {
+            $subscribers = $this->integratorChain->getIntegrators();
 
-	        foreach ($subscribers as $subscriberkey => $subscriber) {
-				$subscriber->build($this->builder);
-			}
-			
-			$this->built = true;
-		}
-	}
-	
+            foreach ($subscribers as $subscriberkey => $subscriber) {
+                $subscriber->build($this->builder);
+            }
+
+            $this->built = true;
+        }
+    }
+
     /**
      *
      * @access public
-	 * @return \CCDNComponent\DashboardBundle\Component\Integrator\Model\Builder
+     * @return \CCDNComponent\DashboardBundle\Component\Integrator\Model\Builder
      */
-	public function getBuilder()
-	{
-		$this->build();
-				
-		return $this->builder;
-	}
-	
+    public function getBuilder()
+    {
+        $this->build();
+
+        return $this->builder;
+    }
+
     /**
      *
      * @access public
-	 * @return array
+     * @return array
      */
-	public function getPages()
-	{
-		$this->build();
-		
-		return $this->builder->getPages();
-	}
-	
+    public function getPages()
+    {
+        $this->build();
+
+        return $this->builder->getPages();
+    }
+
     /**
      *
      * @access public
-	 * @param $category
-	 * @return array
+     * @param $category
+     * @return array
      */
     public function getCategoriesForPage($page)
     {
-		$this->build();
-		
-		return $this->builder->getCategoriesForPage($page);
+        $this->build();
+
+        return $this->builder->getCategoriesForPage($page);
     }
 
     /**
      *
      * @access public
- 	 * @return array
+      * @return array
      */
     public function getCategories()
     {
-		$this->build();
-		
-		return $this->builder->getCategories();
+        $this->build();
+
+        return $this->builder->getCategories();
     }
 }

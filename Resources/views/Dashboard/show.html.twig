@@ -8,27 +8,27 @@
 	{{ parent() }}
 
 	<li class="nav-header">{{- 'ccdn_component_dashboard.sidebar.header.categories' |trans({}, 'CCDNComponentDashboardBundle') -}}</li>
-	
+
 	<li{%- if currentPage == 'default' %} class="active"{%- endif -%}>
 		<a href="{{- path('ccdn_component_dashboard_index') -}}">
 			All
 		</a>
 	</li>
-		
+
 	{%- for page in pages -%}
-		
+
 		{%- if page.countCategories() > 0 -%}
-			
+
 			<li{%- if page.getName() == currentPage %} class="active"{%- endif -%}>
 				<a href="{{- path('ccdn_component_dashboard_show', {'pageName': page.getName()}) -}}">
 					{{- page.getLabel() -}}
 				</a>
 			</li>
-			
+
 		{%- endif -%}
-	
+
 	{%- endfor -%}
-	
+
 {% endblock %}
 
 {% block body_content %}
@@ -38,17 +38,17 @@
 		{%- for category in categories -%}
 
 			{%- if category.countLinks() > 0 -%}
-		
+
 				<header class="clearfix">
 					<div class="span12">
 						<h4>{{- category.getLabel() -}}</h4>
 					</div>
 				</header>
-		
+
 				<section id="{{- category.getLabel() -}}" class="clearfix">
 					<ul class="thumbnails">
 						{%- for link in category.getLinks() -%}
-					
+
 							{%- if link.isAuthorised() -%}
 								<li class="span2" style="text-align:center;">
 									<a class="thumbnail" href="{{- link.getPath() -}}">
@@ -57,15 +57,15 @@
 									</a>
 								</li>
 							{%- endif -%}
-						
+
 						{%- endfor -%}
 					</ul>
 				</section>
-				
+
 			{%- endif -%}
-			
+
 		{%- endfor -%}
-		
+
 	{#
 		{%- for resource_row, resource in resources -%}
 			{%- for category_row, category in resource -%}
@@ -89,7 +89,7 @@
 						</ul>
 					</section>
 				{% endif %}
-			{%- endfor -%}	
+			{%- endfor -%}
 		{%- else -%}
 			<div class="center clearfix article">
 				{{- 'ccdn_component_dashboard.dashboard_empty' | trans({}, 'CCDNComponentDashboardBundle') -}}

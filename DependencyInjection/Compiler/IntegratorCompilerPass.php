@@ -19,15 +19,21 @@ use Symfony\Component\DependencyInjection\Reference;
 
 /**
  *
- * @author Reece Fowell <reece@codeconsortium.com>
- * @version 1.0
+ * @category CCDNComponent
+ * @package  DashboardBundle
+ *
+ * @author   Reece Fowell <reece@codeconsortium.com>
+ * @license  http://opensource.org/licenses/MIT MIT
+ * @version  Release: 2.0
+ * @link     https://github.com/codeconsortium/CCDNComponentDashboardBundle
+ *
  */
 class IntegratorCompilerPass implements CompilerPassInterface
 {
     /**
      *
      * @access public
- 	 * @param ContainerBuilder $container
+      * @param ContainerBuilder $container
      */
     public function process(ContainerBuilder $container)
     {
