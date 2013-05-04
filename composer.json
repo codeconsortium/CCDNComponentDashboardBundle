@@ -1,14 +1,15 @@
 {
     "name": "codeconsortium/ccdn-component-dashboard-bundle",
-    "type": "symfony-bundle",
     "description": "CCDN Component Dashboard Bundle",
     "keywords": ["ccdn", "codeconsortium", "dashboard"],
     "homepage": "http://github.com/codeconsortium/CCDNComponentDashboardBundle",
+    "type": "symfony-bundle",
     "license": "MIT",
     "authors": [
         {
-            "name": "reecefowell",
-            "email": "reece@codeconsortium.com"
+            "name": "Reece Fowell",
+            "email": "reece@codeconsortium.com",
+			"homepage": "http://www.reecefowell.com"
         }
     ],
     "minimum-stability": "dev",
