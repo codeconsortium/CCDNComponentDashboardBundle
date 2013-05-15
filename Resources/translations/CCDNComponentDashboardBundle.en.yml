@@ -1,24 +1,16 @@
-#
-# Layout Header Link Labels.
-#
-ccdn_component_dashboard.layout.header_links.dashboard: 'Dashboard'
+layout:
+    header_links:
+        dashboard:  "Dashboard"
 
-#
-# Page Titles.
-#
-ccdn_component_dashboard.title.dashboard: 'Dashboard.'
+title:
+    dashboard:      "Dashboard"
 
-#
-# Crumbs.
-#
-ccdn_component_dashboard.crumbs.category.index: 'Index'
+crumbs:
+    category:
+        index:      "Index"
 
-#
-# Sidebar.
-#
-ccdn_component_dashboard.sidebar.header.categories: 'Categories'
+sidebar:
+    header:
+        categories: "Categories"
 
-#
-# Generic.
-#
-ccdn_component_dashboard.dashboard_empty: 'There are no items on this dashboard.'
+dashboard_empty:    "There are no items on this dashboard."
