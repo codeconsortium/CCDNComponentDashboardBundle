@@ -43,7 +43,9 @@ class IntegratorCompilerPass implements CompilerPassInterface
 
         $definition = $container->getDefinition('ccdn_component_dashboard.integrator_chain');
 
-        foreach ($container->findTaggedServiceIds('ccdn_component_dashboard.integrator') as $id => $attributes) {
+		$taggedServices = $container->findTaggedServiceIds('ccdn_component_dashboard.integrator');
+		
+        foreach ($taggedServices as $id => $attributes) {
             $definition->addMethodCall('addIntegrator', array(new Reference($id)));
         }
     }
