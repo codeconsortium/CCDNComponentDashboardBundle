@@ -318,13 +318,4 @@ class BaseController extends ContainerAware
 	{
 		return $this->getRequest()->query->get($query, $default);
 	}
-	
-    /**
-     *
-     * @access protected
-     */
-    protected function getCrumbs()
-    {
-        return $this->container->get('ccdn_component_crumb_trail.component.trail');
-    }
 }

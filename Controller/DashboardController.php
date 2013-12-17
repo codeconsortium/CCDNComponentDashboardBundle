@@ -40,18 +40,11 @@ class DashboardController extends BaseController
         $categories = $registry->getCategories();
         $pages = $registry->getPages();
 
-        // setup crumb trail.
-        $crumbs = $this->getCrumbs()
-            ->add($this->trans('ccdn_component_dashboard.crumbs.category.index'), $this->path('ccdn_component_dashboard_index'));
-
-        return $this->renderResponse('CCDNComponentDashboardBundle:Dashboard:show.html.',
-            array(
-                'crumbs' => $crumbs,
-                'pages' => $pages,
-                'currentPage' => 'default',
-                'categories' => $categories,
-            )
-        );
+        return $this->renderResponse('CCDNComponentDashboardBundle:User:Dashboard/show.html.', array(
+            'pages' => $pages,
+            'currentPage' => 'default',
+            'categories' => $categories,
+        ));
     }
 
     /**
@@ -67,18 +60,10 @@ class DashboardController extends BaseController
         $categories = $registry->getCategoriesForPage($pageName);
         $pages = $registry->getPages();
 
-        // setup crumb trail.
-        $crumbs = $this->getCrumbs()
-            ->add($this->trans('ccdn_component_dashboard.crumbs.category.index'), $this->path('ccdn_component_dashboard_index'))
-            ->add($pageName, $this->path('ccdn_component_dashboard_show', array('pageName' => $pageName)));
-
-        return $this->renderResponse('CCDNComponentDashboardBundle:Dashboard:show.html.',
-            array(
-                'crumbs' => $crumbs,
-                'pages' => $pages,
-                'currentPage' => $pageName,
-                'categories' => $categories,
-            )
-        );
+        return $this->renderResponse('CCDNComponentDashboardBundle:User:Dashboard/show.html.',array(
+            'pages' => $pages,
+            'currentPage' => $pageName,
+            'categories' => $categories,
+        ));
     }
 }

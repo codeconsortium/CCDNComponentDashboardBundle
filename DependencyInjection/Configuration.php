@@ -35,6 +35,13 @@ class Configuration implements ConfigurationInterface
 {
     /**
      *
+     * @access protected
+     * @var string $defaultValueLayoutTemplate
+     */
+    protected $defaultValueLayoutTemplate = 'CCDNComponentDashboardBundle::base.html.twig';
+
+    /**
+     *
      * @access public
      * @return \Symfony\Component\Config\Definition\Builder\TreeBuilder
      */
@@ -150,7 +157,7 @@ class Configuration implements ConfigurationInterface
                         ->arrayNode('show')
                             ->addDefaultsIfNotSet()
                             ->children()
-                                ->scalarNode('layout_template')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_right.html.twig')->end()
+                                ->scalarNode('layout_template')->defaultValue($this->defaultValueLayoutTemplate)->end()
                             ->end()
                         ->end()
                     ->end()

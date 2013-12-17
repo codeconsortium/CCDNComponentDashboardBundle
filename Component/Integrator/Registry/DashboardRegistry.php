@@ -28,7 +28,7 @@ class DashboardRegistry
 {
     /**
      *
-      * @access protected
+     * @access protected
      */
     protected $integratorChain;
 
@@ -49,7 +49,7 @@ class DashboardRegistry
     /**
      *
      * @access public
-       * @param $container
+     * @param $container
      */
     public function __construct($integratorChain, $builder)
     {
