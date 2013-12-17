@@ -1,0 +1,55 @@
+{% extends 'CCDNComponentDashboardBundle:Common:Layout/base.html.twig' %}
+
+{% set LayoutTemplate = ccdn_component_dashboard.dashboard.show.layout_template %}
+
+{%- block title -%}
+	{{- 'title.dashboard' | trans({}, 'CCDNComponentDashboardBundle') |slice(0, ccdn_component_dashboard.seo.title_length) -}}
+{%- endblock -%}
+
+{%- block sidebar -%}
+	{%- spaceless -%}
+		{{- parent() -}}
+		<ul class="nav nav-pills nav-stacked">
+			<li{%- if currentPage == 'default' %} class="active"{%- endif -%}>
+				<a href="{{- path('ccdn_component_dashboard_index') -}}">
+					All
+				</a>
+			</li>
+			{%- for page in pages -%}
+				{%- if page.countCategories() > 0 -%}
+					<li{%- if page.getName() == currentPage %} class="active"{%- endif -%}>
+						<a href="{{- path('ccdn_component_dashboard_show', {'pageName': page.getName()}) -}}">
+							{{- page.getLabel() -}}
+						</a>
+					</li>
+				{%- endif -%}
+			{%- endfor -%}
+		</ul>
+	{%- endspaceless -%}
+{%- endblock sidebar -%}
+
+{%- block body_content -%}
+	{%- spaceless -%}
+		{%- for category in categories -%}
+			{%- if category.countLinks() > 0 -%}
+				<section class="panel panel-default">
+					<header class="panel-heading">
+						<h4>{{- category.getLabel() -}}</h4>
+					</header>
+					<div class="list-group" id="{{- category.getLabel() -}}">
+						{%- for link in category.getLinks() -%}
+							{%- if link.isAuthorised() -%}
+								<a class="list-group-item" href="{{- link.getPath() -}}">
+									{#
+									<img class="icon32" width="32" height="32" src="{{- link.getIcon() -}}" alt="{{- link.getLabel() -}}">
+									#}
+									{{- link.getLabel() -}}
+								</a>
+							{%- endif -%}
+						{%- endfor -%}
+					</div>
+				</section>
+			{%- endif -%}
+		{%- endfor -%}
+	{%- endspaceless -%}
+{%- endblock body_content -%}
