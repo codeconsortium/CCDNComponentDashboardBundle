@@ -17,7 +17,6 @@ Available on:
 * [Github](http://www.github.com/codeconsortium/CCDNComponentDashboardBundle)
 * [Packagist](https://packagist.org/packages/codeconsortium/ccdn-component-dashboard-bundle)
 
-Icons courtesy of [PC.de Icons](http://pc.de/icons/) licensed under [Creative Commons](http://creativecommons.org/licenses/by/3.0/).
 Theme and Sprite graphics courtesy of [twitter bootstrap](http://twitter.github.com/bootstrap/index.html) and [GLYPHICONS](http://glyphicons.com/).
 
 Other graphics are works of CodeConsortium.
