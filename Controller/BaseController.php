@@ -97,7 +97,7 @@ class BaseController extends ContainerAware
      */
     protected function setFlash($action, $value)
     {
-        $this->container->get('session')->setFlash($action, $value);
+        $this->container->get('session')->getFlashBag()->add($action, $value);
     }
 
     /**
