@@ -16,7 +16,7 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.3.*",
-        "twig/extensions": "1.0.*",
+        "twig/extensions": "1.0.*"
     },
     "autoload": {
         "psr-0": { "CCDNComponent\\DashboardBundle": "" }
