@@ -1,7 +1,7 @@
-[![Stories in Ready](https://badge.waffle.io/codeconsortium/ccdncomponentdashboardbundle.png?label=ready)](https://waffle.io/codeconsortium/ccdncomponentdashboardbundle)
 CCDNComponent DashboardBundle README.
 =====================================
 
+[![Stories in Ready](https://badge.waffle.io/codeconsortium/ccdncomponentdashboardbundle.png?label=ready)](https://waffle.io/codeconsortium/ccdncomponentdashboardbundle)
 
 ## Notes:  
   
