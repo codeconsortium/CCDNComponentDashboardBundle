@@ -5,11 +5,8 @@ CCDNComponent DashboardBundle README.
 
 ## Notes:  
   
-This bundle is for the symfony framework and requires Symfony 2.1.x and PHP 5.4
+This bundle is for the symfony framework and requires Symfony ~2.4 and PHP 5.4
   
-This project uses Doctrine 2.1.x and so does not require any specific database.
-  
-
 This file is part of the CCDNComponent bundles(s)
 
 &copy; CCDN &copy; [CodeConsortium](http://www.codeconsortium.com/)

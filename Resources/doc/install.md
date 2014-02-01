@@ -1,10 +1,9 @@
-Installing CCDNComponent DashboardBundle 1.x
-============================================
+Installing CCDNComponent DashboardBundle.
+=========================================
 
 ## Dependencies:
 
-1. [CCDNComponent CommonBundle](https://github.com/codeconsortium/CCDNComponentCommonBundle).
-2. [CCDNComponent CrumbTrailBundle](https://github.com/codeconsortium/CCDNComponentCrumbTrailBundle).
+No depedencies for this bundle.
 
 ## Installation:
 
@@ -49,9 +48,9 @@ register the new bundle:
 public function registerBundles()
 {
     $bundles = array(
-		new CCDNComponent\DashboardBundle\CCDNComponentDashboardBundle(),
-		...
-	);
+        new CCDNComponent\DashboardBundle\CCDNComponentDashboardBundle(),
+        // ...
+    );
 }
 ```
 
